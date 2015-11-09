@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Kodi Commander</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item >Kodi Remote</item>
+        <item >Twitch</item>
+        <item >Youtube</item>
+        <item >Options</item>
+    </string-array>
+    
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_kodi</item>
+        <item>@drawable/ic_twitch</item>
+        <item>@drawable/ic_youtube</item>
+        <item>@drawable/ic_options</item>
+    </array>
+    
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+
+</resources>

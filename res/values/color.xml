@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Menu -->
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#303030</color>
+    <color name="list_background_pressed">#3497F4</color>
+    <color name="list_divider">#272727</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    
+    <!-- Action Bar -->
+    <color name="action_bar_text">#ffffff</color>
+    <color name="action_bar_color1">#303030</color>
+    <color name="action_bar_color2">#424242</color>
+    
+    
+</resources>
