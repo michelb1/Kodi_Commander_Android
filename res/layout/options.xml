@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/action_bar_background"
+    style="@style/viewStyle"
     android:orientation="vertical" >
 
     <TextView
@@ -10,8 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_horizontal_margin"
         android:text="Twitch Name:"
         android:textColor="@color/list_item_title" />
 
@@ -21,17 +20,16 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text_rounded"
         android:layout_gravity="center_horizontal"
+        android:minHeight="30dp"
+        android:singleLine="true"
         android:ems="1" >
-
-        <requestFocus />
     </EditText>
 
     <TextView
         android:id="@+id/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_horizontal_margin"
         android:layout_gravity="center_horizontal"
         android:text="Kodi IP:" 
         android:textColor="@color/list_item_title" />
@@ -40,12 +38,13 @@
         android:id="@+id/kodi_ip"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_rounded"
-        android:ems="1"
         android:layout_gravity="center_horizontal"
+        android:background="@drawable/edit_text_rounded"
+        android:singleLine="true"
+        android:ems="1"
+        android:minHeight="30dp"
         android:paddingRight="@dimen/activity_horizontal_margin" >
 
-        <requestFocus />
     </EditText>
 
     <Button

@@ -56,23 +56,22 @@ public final class R {
         public static final int ic_drawer=0x7f02000c;
         public static final int ic_kodi=0x7f02000d;
         public static final int ic_kodicmd=0x7f02000e;
-        public static final int ic_launcher=0x7f02000f;
-        public static final int ic_options=0x7f020010;
-        public static final int ic_twitch=0x7f020011;
-        public static final int ic_youtube=0x7f020012;
-        public static final int left_active=0x7f020013;
-        public static final int left_passive=0x7f020014;
-        public static final int list_item_bg_normal=0x7f020015;
-        public static final int list_item_bg_pressed=0x7f020016;
-        public static final int list_selector=0x7f020017;
-        public static final int play_active=0x7f020018;
-        public static final int play_passive=0x7f020019;
-        public static final int right_active=0x7f02001a;
-        public static final int right_passive=0x7f02001b;
-        public static final int stop_active=0x7f02001c;
-        public static final int stop_passive=0x7f02001d;
-        public static final int up_active=0x7f02001e;
-        public static final int up_passive=0x7f02001f;
+        public static final int ic_options=0x7f02000f;
+        public static final int ic_twitch=0x7f020010;
+        public static final int ic_youtube=0x7f020011;
+        public static final int left_active=0x7f020012;
+        public static final int left_passive=0x7f020013;
+        public static final int list_item_bg_normal=0x7f020014;
+        public static final int list_item_bg_pressed=0x7f020015;
+        public static final int list_selector=0x7f020016;
+        public static final int play_active=0x7f020017;
+        public static final int play_passive=0x7f020018;
+        public static final int right_active=0x7f020019;
+        public static final int right_passive=0x7f02001a;
+        public static final int stop_active=0x7f02001b;
+        public static final int stop_passive=0x7f02001c;
+        public static final int up_active=0x7f02001d;
+        public static final int up_passive=0x7f02001e;
     }
     public static final class id {
         public static final int action_settings=0x7f0a001a;
@@ -120,7 +119,8 @@ public final class R {
         public static final int app_name=0x7f060000;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f060002;
+        public static final int desc_list_item_icon=0x7f060003;
+        public static final int play_stream=0x7f060002;
     }
     public static final class style {
         public static final int ActionBarText=0x7f080003;

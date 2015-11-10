@@ -108,7 +108,7 @@ public class Twitch {
 			String imageUrl;
 			int viewer;
 			
-			streamer = list.channel.display_name;
+			streamer = list.channel.name;
 			game = list.game;
 			imageUrl = list.preview.medium;
 			viewer = list.viewers;

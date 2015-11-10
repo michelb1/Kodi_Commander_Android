@@ -18,8 +18,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
-
-    </ListView>
+        android:layout_alignParentTop="true" 
+        android:choiceMode="singleChoice"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"        
+        android:background="@color/list_background"/>
 
 </RelativeLayout>

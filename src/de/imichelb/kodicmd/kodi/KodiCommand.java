@@ -10,5 +10,6 @@ public enum KodiCommand {
 	STOP,
 	PLAY,
 	PLAYLIST_ADD,
-	PLAYLIST_OPEN
+	PLAYLIST_OPEN,
+	OPEN_STREAM
 }

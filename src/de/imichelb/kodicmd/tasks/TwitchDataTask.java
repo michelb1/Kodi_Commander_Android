@@ -10,21 +10,22 @@ import android.widget.ProgressBar;
 import de.imichelb.kodicmd.adapter.TwitchViewListAdapter;
 import de.imichelb.kodicmd.model.TwitchItem;
 import de.imichelb.kodicmd.twitch.Twitch;
+import de.imichelb.kodicmd.twitch.TwitchItemListener;
 
 public class TwitchDataTask extends AsyncTask<Object, Object, Object>{
 	
 	private ProgressBar progress;
 	private ListView list;
 	private Context context;
-	private Twitch twitch;
 	private TwitchViewListAdapter adapter;
+	private TwitchItemListener listener;
 	
-	public TwitchDataTask(Context context, ProgressBar progress, ListView list){
+	public TwitchDataTask(Context context, ProgressBar progress, ListView list, TwitchItemListener listener){
 		
 		this.progress = progress;
 		this.list = list;
 		this.context = context;
-		twitch = new Twitch();
+		this.listener = listener;
 	}
 	
 	@Override
@@ -44,12 +45,20 @@ public class TwitchDataTask extends AsyncTask<Object, Object, Object>{
 
 	@Override
 	protected Object doInBackground(Object... arg0) {
-			
+		
+		Twitch twitch = new Twitch();
+		
+		//invokes the Twitch Server Query
 		ArrayList<TwitchItem> twitchitems = twitch.getTwitchItems();
-				
+		
+		//Send the List to the Fragment class
+		listener.setTwitchList(twitchitems);
+		
 		adapter = new TwitchViewListAdapter(context, twitchitems);
 		
-		return null;
+		return "";
 	}
+	
+	
 
 }
