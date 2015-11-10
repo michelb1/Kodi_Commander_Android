@@ -155,7 +155,7 @@ public class MainActivity extends Activity {
 			fragment = new RemoteFragment();
 			break;
 		case 1:
-			fragment = new TwitchFragment();
+			fragment = new TwitchFragment(this);
 			break;
 		case 2:
 			fragment = new YoutubeFragment();
