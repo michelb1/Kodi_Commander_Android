@@ -2,6 +2,7 @@ package de.imichelb.kodicmd;
 
 import de.imichelb.kodicmd.adapter.NavDrawerListAdapter;
 import de.imichelb.kodicmd.model.NavDrawerItem;
+import de.imichelb.kodicmd.model.Options;
 import de.imichelb.kodicmd.R;
 
 import java.util.ArrayList;
@@ -9,9 +10,11 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -42,6 +45,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_main);
+		
+		loadOptions();
 
 		mTitle = mDrawerTitle = getTitle();
 
@@ -102,6 +107,15 @@ public class MainActivity extends Activity {
 			displayView(0);
 		}
 	}
+	
+	private void loadOptions(){
+		
+		Options opt = Options.getInstance();
+		
+		SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+		opt.setTwitchName(pref.getString("twitchName", "default"));
+		opt.setKodiIp(pref.getString("kodiIp", "default"));
+	}
 
 	private class SlideMenuClickListener implements
 			ListView.OnItemClickListener {
@@ -132,6 +146,7 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		
 		case R.id.action_settings:
+			displayView(3);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -161,7 +176,7 @@ public class MainActivity extends Activity {
 			fragment = new YoutubeFragment();
 			break;
 		case 3:
-			fragment = new OptionsFragment();
+			fragment = new OptionsFragment(this);
 			break;
 		default:
 			break;

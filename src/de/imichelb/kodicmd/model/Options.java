@@ -1,8 +1,5 @@
-package de.imichelb.kodicmd;
+package de.imichelb.kodicmd.model;
 
-/*
- * TODO Store Options in File
- */
 public class Options {
 	
 	private String kodiIp;
@@ -10,11 +7,7 @@ public class Options {
 	
 	private static Options instance = null;
 	
-	private Options(){
-		
-		kodiIp = "192.168.0.111";
-		twitchName = "athoril";
-	}
+	private Options(){}
 	
 	public static Options getInstance(){
 		

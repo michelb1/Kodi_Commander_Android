@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import de.imichelb.kodicmd.Options;
 import de.imichelb.kodicmd.helper.HttpUtil;
+import de.imichelb.kodicmd.model.Options;
 import de.imichelb.kodicmd.model.TwitchItem;
 import de.imichelb.kodicmd.twitch.TwitchStreamResponse.Stream;
 import de.imichelb.kodicmd.twitch.TwitchUserResponse.Follow;

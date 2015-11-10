@@ -1,21 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    
+    android:layout_height="match_parent"
+    android:background="@drawable/action_bar_background"
+    android:orientation="vertical" >
+
     <TextView
-        android:id="@+id/txtLabel"
+        android:id="@+id/title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="16dp"
-        android:text="Options View"/>
-    
-    <ImageView android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtLabel"
-        android:src="@drawable/ic_options"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>    
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:text="Twitch Name:"
+        android:textColor="@color/list_item_title" />
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/twitchname"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_rounded"
+        android:layout_gravity="center_horizontal"
+        android:ems="1" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:layout_gravity="center_horizontal"
+        android:text="Kodi IP:" 
+        android:textColor="@color/list_item_title" />
+
+    <EditText
+        android:id="@+id/kodi_ip"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_rounded"
+        android:ems="1"
+        android:layout_gravity="center_horizontal"
+        android:paddingRight="@dimen/activity_horizontal_margin" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_rounded"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:text="Save Options"
+        android:textColor="@color/list_item_title" />
+
+</LinearLayout>

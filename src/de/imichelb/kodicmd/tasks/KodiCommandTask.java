@@ -3,11 +3,11 @@ package de.imichelb.kodicmd.tasks;
 import com.google.gson.Gson;
 
 import android.os.AsyncTask;
-import de.imichelb.kodicmd.Options;
 import de.imichelb.kodicmd.helper.HttpUtil;
 import de.imichelb.kodicmd.kodi.KodiCommand;
 import de.imichelb.kodicmd.kodi.KodiRequest;
 import de.imichelb.kodicmd.kodi.KodiResponse;
+import de.imichelb.kodicmd.model.Options;
 
 public class KodiCommandTask extends AsyncTask<String, String, String>{
 	
