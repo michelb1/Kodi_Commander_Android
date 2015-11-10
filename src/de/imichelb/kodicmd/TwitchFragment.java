@@ -24,7 +24,7 @@ public class TwitchFragment extends Fragment {
 	}
 	
 	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
         twitchView = inflater.inflate(R.layout.twitch, container, false);
@@ -35,15 +35,6 @@ public class TwitchFragment extends Fragment {
         
         return twitchView;
     }
-	
-	private void hideContent(){
-		
-		list.setVisibility(View.GONE);
-	}
-	
-	private void showContent(){
-		
-	}
 	
 	private void loadTwitchData(){
 		
