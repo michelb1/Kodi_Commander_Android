@@ -119,8 +119,10 @@ public final class R {
         public static final int app_name=0x7f060000;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f060003;
+        public static final int desc_list_item_icon=0x7f060005;
+        public static final int kodi_error=0x7f060003;
         public static final int play_stream=0x7f060002;
+        public static final int twitch_error=0x7f060004;
     }
     public static final class style {
         public static final int ActionBarText=0x7f080003;

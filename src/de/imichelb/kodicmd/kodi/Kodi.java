@@ -1,5 +1,8 @@
 package de.imichelb.kodicmd.kodi;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 import com.google.gson.Gson;
 
 
@@ -21,12 +24,12 @@ public class Kodi {
 		json = new Gson();
 	}
 	
-	public KodiResponse execute(KodiCommand cmd){
+	public KodiResponse execute(KodiCommand cmd) throws IOException, MalformedURLException{
 		
 		return execute(cmd,"");
 	}
 
-	public KodiResponse execute(KodiCommand cmd, String uri){
+	public KodiResponse execute(KodiCommand cmd, String uri) throws IOException, MalformedURLException{
 		
 		String kodiRequest = "http://"+opt.getKodiIp()+path;
 		
@@ -38,7 +41,7 @@ public class Kodi {
 		return kodiResponse;
 	}
 	
-	public void executeStream(String uri){
+	public void executeStream(String uri) throws IOException, MalformedURLException{
 		
 		execute(KodiCommand.STOP);
 		execute(KodiCommand.PLAYLIST_ADD,uri);

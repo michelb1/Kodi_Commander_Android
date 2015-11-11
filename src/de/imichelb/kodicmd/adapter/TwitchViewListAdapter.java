@@ -1,13 +1,9 @@
 package de.imichelb.kodicmd.adapter;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +50,7 @@ public class TwitchViewListAdapter extends BaseAdapter{
 			
             LayoutInflater mInflater = (LayoutInflater)
                     context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.twitch_list_item, null);
+            convertView = mInflater.inflate(R.layout.twitch_list_item, parent, false);
         }
 		
 		TextView text = (TextView) convertView.findViewById(R.id.stream);

@@ -1,5 +1,7 @@
 package de.imichelb.kodicmd.tasks;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -7,6 +9,8 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+import de.imichelb.kodicmd.R;
 import de.imichelb.kodicmd.adapter.TwitchViewListAdapter;
 import de.imichelb.kodicmd.model.TwitchItem;
 import de.imichelb.kodicmd.twitch.Twitch;
@@ -31,9 +35,16 @@ public class TwitchDataTask extends AsyncTask<Object, Object, Object>{
 	@Override
 	protected void onPostExecute(Object result) {
 		
-		list.setAdapter(adapter);
-		progress.setVisibility(View.GONE);
-		list.setVisibility(View.VISIBLE);
+		if(!result.equals("")){
+			
+			Toast.makeText(context, (Integer)result, Toast.LENGTH_LONG).show();
+			
+		} else {
+			
+			list.setAdapter(adapter);
+			progress.setVisibility(View.GONE);
+			list.setVisibility(View.VISIBLE);
+		}
 	}
 
 	@Override
@@ -48,8 +59,20 @@ public class TwitchDataTask extends AsyncTask<Object, Object, Object>{
 		
 		Twitch twitch = new Twitch();
 		
-		//invokes the Twitch Server Query
-		ArrayList<TwitchItem> twitchitems = twitch.getTwitchItems();
+		ArrayList<TwitchItem> twitchitems = new ArrayList<TwitchItem>();
+		
+		try {
+			//invokes the Twitch Server Query
+			twitchitems = twitch.getTwitchItems();
+			
+		} catch (MalformedURLException e) {
+			
+			return R.string.twitch_error;
+			
+		} catch (IOException e) {
+			
+			return R.string.twitch_error;
+		}
 		
 		//Send the List to the Fragment class
 		listener.setTwitchList(twitchitems);

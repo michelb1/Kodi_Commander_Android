@@ -1,18 +1,26 @@
 package de.imichelb.kodicmd.tasks;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
+import de.imichelb.kodicmd.R;
 import de.imichelb.kodicmd.kodi.Kodi;
 import de.imichelb.kodicmd.kodi.KodiCommand;
 
-public class KodiCommandTask extends AsyncTask<String, String, String>{
+public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 	
 	private KodiCommand cmd;
 	private String uri;
+	private Context context;
 	
-	public KodiCommandTask(KodiCommand cmd){
+	public KodiCommandTask(Context context, KodiCommand cmd){
 		
 		this.cmd = cmd;
 		this.uri = "";
+		this.context = context;
 	}
 	
 	public KodiCommandTask(KodiCommand cmd, String uri){
@@ -22,20 +30,50 @@ public class KodiCommandTask extends AsyncTask<String, String, String>{
 	}
 	
 	@Override
-	protected String doInBackground(String... params) {
+	protected Object doInBackground(Object... params) {
 		
 		Kodi kodi = new Kodi();
 		
 		if(cmd == KodiCommand.OPEN_STREAM){
 			
-			kodi.executeStream(uri);
+			try {
+				kodi.executeStream(uri);
+				
+			} catch (MalformedURLException e) {
+				
+				return R.string.kodi_error;
+				
+			} catch (IOException e) {
+				
+				return R.string.kodi_error;
+			}
 			
 		} else {
 			
-			kodi.execute(cmd);
+			try {
+				
+				kodi.execute(cmd);
+				
+			} catch (MalformedURLException e) {
+				
+				return R.string.kodi_error;
+				
+			} catch (IOException e) {
+				
+				return R.string.kodi_error;
+			}
 		}
 		
 		return "";
+	}
+
+	@Override
+	protected void onPostExecute(Object result) {
+		
+		if(!result.equals("")){
+			
+			Toast.makeText(context, (Integer)result, Toast.LENGTH_LONG).show();
+		}
 	}	
 
 }

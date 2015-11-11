@@ -1,6 +1,7 @@
 package de.imichelb.kodicmd;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,12 @@ import de.imichelb.kodicmd.R;
 
 public class RemoteFragment extends Fragment {
 	
-	public RemoteFragment(){}
+	Context context;
+	
+	public RemoteFragment(Context context){
+		
+		this.context = context;
+	}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,7 +31,7 @@ public class RemoteFragment extends Fragment {
     }
 	
 	private void activateButtons(View view){
-		
+			
 		addListener(R.id.remoteLeft,KodiCommand.LEFT,view);
 		addListener(R.id.remoteRight,KodiCommand.RIGHT,view);
 		addListener(R.id.remoteUp,KodiCommand.UP,view);
@@ -40,6 +46,6 @@ public class RemoteFragment extends Fragment {
 	private void addListener(int resId, KodiCommand cmd, View view){
 		
 		ImageView image = (ImageView) view.findViewById(resId);
-		image.setOnClickListener(new RemoteButtonListener(cmd));
+		image.setOnClickListener(new RemoteButtonListener(context, cmd));
 	}
 }

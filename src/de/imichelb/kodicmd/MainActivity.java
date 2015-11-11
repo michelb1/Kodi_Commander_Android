@@ -167,7 +167,7 @@ public class MainActivity extends Activity {
 		
 		switch (position) {
 		case 0:
-			fragment = new RemoteFragment();
+			fragment = new RemoteFragment(this);
 			break;
 		case 1:
 			fragment = new TwitchFragment(this);

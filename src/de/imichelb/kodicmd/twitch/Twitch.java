@@ -1,5 +1,7 @@
 package de.imichelb.kodicmd.twitch;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
@@ -23,10 +25,10 @@ public class Twitch {
 		
 		options = Options.getInstance();
 		channelList = new ArrayList<String>();
-		onlineChannels = null;
+		onlineChannels = new TwitchStreamResponse();
 	}
 	
-	private void requestOnlineChannels(){
+	private void requestOnlineChannels() throws MalformedURLException, IOException{
 
 		StringBuilder cList = new StringBuilder();
 		
@@ -46,7 +48,7 @@ public class Twitch {
 
 	}
 	
-	private void requestChannelList(){
+	private void requestChannelList() throws MalformedURLException, IOException{
 		
 		int page = 1;
 		String reqUri;
@@ -89,13 +91,13 @@ public class Twitch {
 		}
 	}
 	
-	private void requestLists(){
+	private void requestLists() throws MalformedURLException, IOException{
 		
 		requestChannelList();
 		requestOnlineChannels();
 	}
 	
-	public ArrayList<TwitchItem> getTwitchItems(){
+	public ArrayList<TwitchItem> getTwitchItems() throws MalformedURLException, IOException{
 		
 		requestLists();
 		

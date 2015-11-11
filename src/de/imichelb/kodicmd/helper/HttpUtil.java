@@ -15,43 +15,33 @@ public class HttpUtil {
 	}
 	
 	//sends a http-get-Command
-	public String get(String urlStr){
+	public String get(String urlStr) throws IOException, MalformedURLException{
 		
 		HttpURLConnection connection = null;
 		StringBuilder response = null;
 		
-		try {			
-			URL url = new URL(urlStr);
+		URL url = new URL(urlStr);
+		
+		//setup connection
+		connection = (HttpURLConnection) url.openConnection();
+		connection.setRequestMethod("GET");
+		connection.setUseCaches(false);
+		connection.setDoOutput(false);
+			    
+		//response
+		InputStream is = connection.getInputStream();
+		BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+		response = new StringBuilder();
+		
+		String line;
+		
+		while((line = rd.readLine()) != null) {
 			
-			//setup connection
-			connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod("GET");
-			connection.setUseCaches(false);
-			connection.setDoOutput(false);
-				    
-			//response
-			InputStream is = connection.getInputStream();
-			BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-			response = new StringBuilder();
-			
-			String line;
-			
-			while((line = rd.readLine()) != null) {
-				
-				response.append(line);
-				response.append('\r');
-			}
-			
-			rd.close();
-		    
-		} catch (MalformedURLException e) {
-			
-			e.printStackTrace();
-			
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		} 
+			response.append(line);
+			response.append('\r');
+		}
+		
+		rd.close();
 		
 		return(response.toString());
 	}
