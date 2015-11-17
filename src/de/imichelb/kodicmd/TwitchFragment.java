@@ -60,7 +60,7 @@ public class TwitchFragment extends Fragment implements OnItemClickListener, Twi
 		String uri = TWITCH_URI + twitchItems.get(pos).getStreamer() + "/";
 		
 		//start stream on Kodi
-		new KodiCommandTask(KodiCommand.OPEN_STREAM, uri).execute();
+		new KodiCommandTask(context,KodiCommand.OPEN_STREAM, uri).execute();
 		
 		//Info Toast
 		Toast.makeText(context, R.string.play_stream, Toast.LENGTH_LONG).show();

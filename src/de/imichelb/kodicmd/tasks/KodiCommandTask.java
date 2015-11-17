@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.CountDownTimer;
 import android.widget.Toast;
 import de.imichelb.kodicmd.R;
 import de.imichelb.kodicmd.kodi.Kodi;
@@ -23,12 +24,35 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 		this.context = context;
 	}
 	
-	public KodiCommandTask(KodiCommand cmd, String uri){
+	public KodiCommandTask(Context context, KodiCommand cmd, String uri){
 		
 		this.cmd = cmd;
 		this.uri = uri;
+		this.context = context;
 	}
 	
+	@Override
+	protected void onPreExecute() {
+		
+		final KodiCommandTask task = this;
+		
+		new CountDownTimer(15000, 15000) {
+			
+			@Override
+			public void onTick(long millisUntilFinished) {
+								
+			}
+			
+			@Override
+			public void onFinish() {
+				
+				if (task.getStatus() == AsyncTask.Status.RUNNING) {
+	                task.cancel(false);	
+				}
+			}
+		}.start();
+	}
+
 	@Override
 	protected Object doInBackground(Object... params) {
 		
@@ -65,6 +89,12 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 		}
 		
 		return "";
+	}
+
+	@Override
+	protected void onCancelled(Object result) {
+		
+		Toast.makeText(context, "KodiTask Timeout", Toast.LENGTH_LONG).show();
 	}
 
 	@Override
