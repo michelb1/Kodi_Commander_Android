@@ -5,9 +5,8 @@ import java.net.MalformedURLException;
 
 import com.google.gson.Gson;
 
-
-import de.imichelb.kodicmd.helper.HttpUtil;
 import de.imichelb.kodicmd.model.Options;
+import de.imichelb.kodicmd.utils.HttpUtil;
 
 public class Kodi {
 	

@@ -1,4 +1,4 @@
-package de.imichelb.kodicmd.helper;
+package de.imichelb.kodicmd.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

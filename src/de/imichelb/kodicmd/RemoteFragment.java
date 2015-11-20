@@ -25,12 +25,12 @@ public class RemoteFragment extends Fragment {
  
         View remoteView = inflater.inflate(R.layout.remote, container, false);
         
-        activateButtons(remoteView);
+        initButtons(remoteView);
         
         return remoteView;
     }
 	
-	private void activateButtons(View view){
+	private void initButtons(View view){
 			
 		addListener(R.id.remoteLeft,KodiCommand.LEFT,view);
 		addListener(R.id.remoteRight,KodiCommand.RIGHT,view);
@@ -45,7 +45,13 @@ public class RemoteFragment extends Fragment {
 	
 	private void addListener(int resId, KodiCommand cmd, View view){
 		
+		RemoteButtonListener listener = new RemoteButtonListener(context, cmd);
+		
 		ImageView image = (ImageView) view.findViewById(resId);
-		image.setOnClickListener(new RemoteButtonListener(context, cmd));
+		
+		image.setSoundEffectsEnabled(false);
+		
+		image.setOnClickListener(listener);
+		image.setOnTouchListener(listener);
 	}
 }

@@ -66,12 +66,17 @@ public final class R {
         public static final int list_selector=0x7f020016;
         public static final int play_active=0x7f020017;
         public static final int play_passive=0x7f020018;
-        public static final int right_active=0x7f020019;
-        public static final int right_passive=0x7f02001a;
-        public static final int stop_active=0x7f02001b;
-        public static final int stop_passive=0x7f02001c;
-        public static final int up_active=0x7f02001d;
-        public static final int up_passive=0x7f02001e;
+        public static final int remote_center=0x7f020019;
+        public static final int remote_down=0x7f02001a;
+        public static final int remote_left=0x7f02001b;
+        public static final int remote_right=0x7f02001c;
+        public static final int remote_up=0x7f02001d;
+        public static final int right_active=0x7f02001e;
+        public static final int right_passive=0x7f02001f;
+        public static final int stop_active=0x7f020020;
+        public static final int stop_passive=0x7f020021;
+        public static final int up_active=0x7f020022;
+        public static final int up_passive=0x7f020023;
     }
     public static final class id {
         public static final int action_settings=0x7f0a001a;

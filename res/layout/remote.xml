@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/up_passive" />
+            android:src="@drawable/remote_up" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -30,19 +30,19 @@
                 android:id="@+id/remoteLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/left_passive" />
+                android:src="@drawable/remote_left" />
 
             <ImageView
                 android:id="@+id/remoteCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/center_passive" />
+                android:src="@drawable/remote_center" />
 
             <ImageView
                 android:id="@+id/remoteRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/right_passive" />
+                android:src="@drawable/remote_right" />
 
         </LinearLayout>
 
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/down_passive" />
+            android:src="@drawable/remote_down" />
 
         <LinearLayout
             android:layout_width="wrap_content"

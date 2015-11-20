@@ -47,6 +47,7 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 			public void onFinish() {
 				
 				if (task.getStatus() == AsyncTask.Status.RUNNING) {
+					
 	                task.cancel(false);	
 				}
 			}

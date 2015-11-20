@@ -19,12 +19,14 @@ public class OptionsFragment extends Fragment {
 	private EditText ip;
 	private EditText twitchName;
 	private Button btn;
-	private Options opt = Options.getInstance();
+	private Options opt;
 	private Context context;
 	
 	public OptionsFragment(Context context){
 		
 		this.context = context;
+		
+		opt = Options.getInstance();
 	}
 	
 	@Override
