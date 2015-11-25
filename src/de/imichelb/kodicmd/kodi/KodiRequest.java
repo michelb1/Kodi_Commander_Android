@@ -31,6 +31,16 @@ public class KodiRequest {
 			case ENTER: command = "Input.Select";break;
 			case STOP: command = "Player.Stop";params = new ParamsPlayer();break;
 			case PLAY: command = "Player.PlayPause";params = new ParamsPlayer();break;
+			
+			//TODO: The "Input.Select" Commands are Placeholders
+			case FORWARD: command = "Input.Select";break;
+			case BACKWARD: command = "Input.Select";break;
+			case STEP_FORWARD: command = "Input.Select";break;
+			case STEP_BACKWARD: command = "Input.Select";break;
+			
+			case BACK: command = "Input.Back";break;
+			case TITLE: command = "Input.ShowCodec";break;
+			case INFO: command = "Input.Info";break;		
 			case PLAYLIST_ADD: command = "Playlist.Add";params = new ParamsPlayList(uri);break;
 			case PLAYLIST_OPEN: command = "Player.Open";params = new ParamsPlayList();break;
 			

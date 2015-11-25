@@ -41,6 +41,12 @@ public class RemoteFragment extends Fragment {
 		addListener(R.id.remoteForward,KodiCommand.RIGHT,view);
 		addListener(R.id.remotePlay,KodiCommand.PLAY,view);
 		addListener(R.id.remoteStop,KodiCommand.STOP,view);
+		addListener(R.id.remoteTitle,KodiCommand.TITLE,view);
+		addListener(R.id.remoteInfo,KodiCommand.INFO,view);
+		addListener(R.id.remoteBack,KodiCommand.BACK,view);
+		addListener(R.id.remoteStepBackward,KodiCommand.STEP_BACKWARD,view);
+		addListener(R.id.remoteStepForward,KodiCommand.STEP_FORWARD,view);
+
 	}
 	
 	private void addListener(int resId, KodiCommand cmd, View view){

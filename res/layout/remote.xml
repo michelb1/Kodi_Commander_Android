@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/viewStyle"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/viewStyle">
+    android:layout_height="match_parent" >
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -46,12 +46,35 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/remoteDown"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/remote_down" />
+            android:gravity="center_vertical|center_horizontal" >
+
+            <ImageView
+                android:id="@+id/remoteTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/remote_title" />
+
+            <ImageView
+                android:id="@+id/remoteDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/remote_down" />
+	        
+            <ImageView
+                android:id="@+id/remoteInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/remote_info" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -63,26 +86,51 @@
                 android:id="@+id/remoteBackward"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/backward_passive" />
+                android:src="@drawable/remote_backward" />
 
             <ImageView
                 android:id="@+id/remoteStop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/stop_passive" />
+                android:src="@drawable/remote_stop" />
 
             <ImageView
                 android:id="@+id/remotePlay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/play_passive" />
+                android:src="@drawable/remote_play" />
 
             <ImageView
                 android:id="@+id/remoteForward"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/forward_passive" />
+                android:src="@drawable/remote_forward" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal" >
+
+            <ImageView
+                android:id="@+id/remoteStepBackward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/remote_step_back" />
+
+            <ImageView
+                android:id="@+id/remoteBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:src="@drawable/remote_back" />
+
+            <ImageView
+                android:id="@+id/remoteStepForward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/remote_step_forward" />
         </LinearLayout>
 
     </LinearLayout>
