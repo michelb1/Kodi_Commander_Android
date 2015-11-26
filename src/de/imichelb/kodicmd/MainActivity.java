@@ -1,6 +1,10 @@
 package de.imichelb.kodicmd;
 
 import de.imichelb.kodicmd.adapter.NavDrawerListAdapter;
+import de.imichelb.kodicmd.fragments.OptionsFragment;
+import de.imichelb.kodicmd.fragments.RemoteFragment;
+import de.imichelb.kodicmd.fragments.TwitchFragment;
+import de.imichelb.kodicmd.fragments.YoutubeFragment;
 import de.imichelb.kodicmd.model.NavDrawerItem;
 import de.imichelb.kodicmd.model.Options;
 import de.imichelb.kodicmd.R;

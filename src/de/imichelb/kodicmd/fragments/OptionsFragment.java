@@ -1,4 +1,4 @@
-package de.imichelb.kodicmd;
+package de.imichelb.kodicmd.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import de.imichelb.kodicmd.R;
+import de.imichelb.kodicmd.R.id;
+import de.imichelb.kodicmd.R.layout;
 import de.imichelb.kodicmd.model.Options;
 
 public class OptionsFragment extends Fragment {

@@ -1,4 +1,4 @@
-package de.imichelb.kodicmd;
+package de.imichelb.kodicmd.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import de.imichelb.kodicmd.R;
+import de.imichelb.kodicmd.R.layout;
 
 public class YoutubeFragment extends Fragment {
 	

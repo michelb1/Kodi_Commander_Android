@@ -1,4 +1,4 @@
-package de.imichelb.kodicmd;
+package de.imichelb.kodicmd.fragments;
 
 import java.util.ArrayList;
 
@@ -14,13 +14,16 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import de.imichelb.kodicmd.R;
+import de.imichelb.kodicmd.R.id;
+import de.imichelb.kodicmd.R.layout;
+import de.imichelb.kodicmd.R.string;
 import de.imichelb.kodicmd.kodi.KodiCommand;
 import de.imichelb.kodicmd.model.TwitchItem;
 import de.imichelb.kodicmd.tasks.KodiCommandTask;
 import de.imichelb.kodicmd.tasks.TwitchDataTask;
-import de.imichelb.kodicmd.twitch.TwitchItemListener;
+import de.imichelb.kodicmd.twitch.TwitchItemObserver;
 
-public class TwitchFragment extends Fragment implements OnItemClickListener, TwitchItemListener{
+public class TwitchFragment extends Fragment implements OnItemClickListener, TwitchItemObserver{
 	
 	private View twitchView;
 	private ProgressBar progress;

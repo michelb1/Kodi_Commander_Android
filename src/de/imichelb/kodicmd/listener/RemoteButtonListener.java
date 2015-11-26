@@ -1,4 +1,4 @@
-package de.imichelb.kodicmd;
+package de.imichelb.kodicmd.listener;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
