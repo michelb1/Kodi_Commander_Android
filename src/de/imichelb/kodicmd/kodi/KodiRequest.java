@@ -40,6 +40,7 @@ public class KodiRequest {
 			
 			case BACK: command = "Input.Back";break;
 			case TITLE: command = "Input.ShowCodec";break;
+			case MENU: command = "Input.Home";break;
 			case INFO: command = "Input.Info";break;		
 			case PLAYLIST_ADD: command = "Playlist.Add";params = new ParamsPlayList(uri);break;
 			case PLAYLIST_OPEN: command = "Player.Open";params = new ParamsPlayList();break;

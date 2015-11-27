@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import de.imichelb.kodicmd.kodi.KodiCommand;
-import de.imichelb.kodicmd.listener.RemoteButtonListener;
+import de.imichelb.kodicmd.listener.RemoteKodiListener;
+import de.imichelb.kodicmd.listener.AbstractRemoteListener;
+import de.imichelb.kodicmd.listener.RemoteDialogListener;
 import de.imichelb.kodicmd.R;
 import de.imichelb.kodicmd.R.id;
 import de.imichelb.kodicmd.R.layout;
@@ -44,18 +46,32 @@ public class RemoteFragment extends Fragment {
 		addListener(R.id.remoteForward,KodiCommand.RIGHT,view);
 		addListener(R.id.remotePlay,KodiCommand.PLAY,view);
 		addListener(R.id.remoteStop,KodiCommand.STOP,view);
-		addListener(R.id.remoteTitle,KodiCommand.TITLE,view);
+		addListener(R.id.remoteCodec,KodiCommand.TITLE,view);
 		addListener(R.id.remoteInfo,KodiCommand.INFO,view);
 		addListener(R.id.remoteBack,KodiCommand.BACK,view);
 		addListener(R.id.remoteStepBackward,KodiCommand.STEP_BACKWARD,view);
 		addListener(R.id.remoteStepForward,KodiCommand.STEP_FORWARD,view);
+		
+		addListener(R.id.remoteMenu,KodiCommand.MENU,view);
+		addListener(R.id.remoteText,null,view);
 
 	}
 	
 	private void addListener(int resId, KodiCommand cmd, View view){
 		
-		RemoteButtonListener listener = new RemoteButtonListener(context, cmd);
+		AbstractRemoteListener listener;
 		
+		//kodi listener
+		if(cmd != null) {
+			
+			listener = new RemoteKodiListener(context, cmd);
+		
+		//special listener
+		} else {
+			
+			listener = new RemoteDialogListener(context);
+		}
+			
 		ImageView image = (ImageView) view.findViewById(resId);
 		
 		image.setSoundEffectsEnabled(false);

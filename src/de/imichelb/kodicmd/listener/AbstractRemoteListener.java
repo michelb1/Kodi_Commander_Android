@@ -7,32 +7,19 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import de.imichelb.kodicmd.kodi.KodiCommand;
-import de.imichelb.kodicmd.tasks.KodiCommandTask;
 
-public class RemoteButtonListener implements OnClickListener, OnTouchListener{
-	
-	private KodiCommand cmd;
-	private Context context;
-	
-	private Vibrator vibe;
+public abstract class AbstractRemoteListener implements OnClickListener, OnTouchListener{
+
+	protected Context context;
+	protected Vibrator vibe;
 		
-	public RemoteButtonListener(Context context, KodiCommand cmd){
+	public AbstractRemoteListener(Context context){
 		
-		this.cmd = cmd;
 		this.context = context;
 		
 		vibe = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 	}
 	
-	@Override
-	public void onClick(View view) {
-		
-		vibe.vibrate(30);
-		
-		new KodiCommandTask(context, cmd).execute();
-	}
-
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public boolean onTouch(View view, MotionEvent event) {

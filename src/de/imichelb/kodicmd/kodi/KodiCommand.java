@@ -15,6 +15,7 @@ public enum KodiCommand {
 	STEP_BACKWARD,
 	BACK,
 	TITLE,
+	MENU,
 	INFO,
 	PLAYLIST_ADD,
 	PLAYLIST_OPEN,
