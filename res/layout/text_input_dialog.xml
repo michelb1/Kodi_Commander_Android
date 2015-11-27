@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/viewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical" >
+    
+	    <TextView
+	        android:id="@+id/title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:padding="@dimen/activity_horizontal_margin"
+	        android:text="Send Text to Kodi:"
+	        android:textColor="@color/list_item_title" />
+	
+	    <EditText
+	        android:id="@+id/kodiText"
+	        android:layout_width="250dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:background="@drawable/edit_text_rounded"
+	        android:padding="10dp"
+	        android:ems="1"
+	        android:minHeight="30dp"
+	        android:singleLine="true" >
+	
+	    </EditText>
+		
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:layout_marginTop="20dp"
+	        android:orientation="horizontal" >
+	    
+		    <Button
+		        android:id="@+id/send_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        android:layout_marginBottom="10dp"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="20dp"
+		        android:background="@drawable/button_rounded"
+		        android:padding="@dimen/activity_horizontal_margin"
+		        android:text="Send"
+		        android:textColor="@color/list_item_title" />
+		    
+		    <Button
+		        android:id="@+id/cancel_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        android:layout_margin="20dp"
+		        android:layout_marginBottom="10dp"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="20dp"
+		        android:background="@drawable/button_rounded"
+		        android:padding="@dimen/activity_horizontal_margin"
+		        android:text="Cancel"
+		        android:textColor="@color/list_item_title" />
+	    
+	    </LinearLayout>
+	    
+    </LinearLayout>
+
+</LinearLayout>

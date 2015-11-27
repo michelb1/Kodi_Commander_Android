@@ -19,11 +19,11 @@
         android:layout_width="252dp"
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text_rounded"
-        android:layout_gravity="center_horizontal"
+		android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:ems="1"
         android:minHeight="30dp"
-        android:singleLine="true"
-        android:ems="1" >
-    </EditText>
+        android:singleLine="true"/>
 
     <TextView
         android:id="@+id/title2"
@@ -40,12 +40,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/edit_text_rounded"
-        android:singleLine="true"
+        android:padding="10dp"
         android:ems="1"
         android:minHeight="30dp"
-        android:paddingRight="@dimen/activity_horizontal_margin" >
-
-    </EditText>
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/save_button"

@@ -1,7 +1,10 @@
 package de.imichelb.kodicmd.listener;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
+import de.imichelb.kodicmd.fragments.TextInputFragment;
 
 public class RemoteDialogListener extends AbstractRemoteListener{
 		
@@ -15,7 +18,11 @@ public class RemoteDialogListener extends AbstractRemoteListener{
 		
 		vibe.vibrate(30);
 		
-		//TODO: Open Text Input Dialog		
+		FragmentManager fm = ((FragmentActivity)context).getSupportFragmentManager();
+		
+		TextInputFragment textInput = new TextInputFragment();
+		
+		textInput.show(fm, "Text Input Fragment");
 	}
 
 }

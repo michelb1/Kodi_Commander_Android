@@ -12,8 +12,6 @@ import de.imichelb.kodicmd.listener.RemoteKodiListener;
 import de.imichelb.kodicmd.listener.AbstractRemoteListener;
 import de.imichelb.kodicmd.listener.RemoteDialogListener;
 import de.imichelb.kodicmd.R;
-import de.imichelb.kodicmd.R.id;
-import de.imichelb.kodicmd.R.layout;
 
 public class RemoteFragment extends Fragment {
 	
