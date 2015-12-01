@@ -2,14 +2,14 @@ package de.imichelb.kodicmd.listener;
 
 import android.content.Context;
 import android.view.View;
-import de.imichelb.kodicmd.kodi.KodiCommand;
+import de.imichelb.kodicmd.kodi.Command;
 import de.imichelb.kodicmd.tasks.KodiCommandTask;
 
 public class RemoteKodiListener extends AbstractRemoteListener{
 	
-	private KodiCommand cmd;
+	private Command cmd;
 		
-	public RemoteKodiListener(Context context, KodiCommand cmd){
+	public RemoteKodiListener(Context context, Command cmd){
 		
 		super(context);
 		

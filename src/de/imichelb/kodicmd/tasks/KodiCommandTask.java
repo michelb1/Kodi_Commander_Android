@@ -8,23 +8,23 @@ import android.os.AsyncTask;
 import android.os.CountDownTimer;
 import android.widget.Toast;
 import de.imichelb.kodicmd.R;
-import de.imichelb.kodicmd.kodi.Kodi;
-import de.imichelb.kodicmd.kodi.KodiCommand;
+import de.imichelb.kodicmd.kodi.KodiCmdWrapper;
+import de.imichelb.kodicmd.kodi.Command;
 
 public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 	
-	private KodiCommand cmd;
+	private Command cmd;
 	private String uri;
 	private Context context;
 	
-	public KodiCommandTask(Context context, KodiCommand cmd){
+	public KodiCommandTask(Context context, Command cmd){
 		
 		this.cmd = cmd;
 		this.uri = "";
 		this.context = context;
 	}
 	
-	public KodiCommandTask(Context context, KodiCommand cmd, String uri){
+	public KodiCommandTask(Context context, Command cmd, String uri){
 		
 		this.cmd = cmd;
 		this.uri = uri;
@@ -56,37 +56,18 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 
 	@Override
 	protected Object doInBackground(Object... params) {
-		
-		Kodi kodi = new Kodi();
-		
-		if(cmd == KodiCommand.OPEN_STREAM){
+					
+		try {
+			//execute the Kodi Command
+			new KodiCmdWrapper(cmd, uri);
 			
-			try {
-				kodi.executeStream(uri);
-				
-			} catch (MalformedURLException e) {
-				
-				return R.string.kodi_error;
-				
-			} catch (IOException e) {
-				
-				return R.string.kodi_error;
-			}
+		} catch (MalformedURLException e) {
 			
-		} else {
+			return R.string.kodi_error;
 			
-			try {
-				
-				kodi.execute(cmd);
-				
-			} catch (MalformedURLException e) {
-				
-				return R.string.kodi_error;
-				
-			} catch (IOException e) {
-				
-				return R.string.kodi_error;
-			}
+		} catch (IOException e) {
+			
+			return R.string.kodi_error;
 		}
 		
 		return "";

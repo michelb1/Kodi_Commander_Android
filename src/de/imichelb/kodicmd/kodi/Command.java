@@ -1,6 +1,6 @@
 package de.imichelb.kodicmd.kodi;
 
-public enum KodiCommand {
+public enum Command {
 
 	UP,
 	DOWN,
@@ -17,7 +17,5 @@ public enum KodiCommand {
 	TITLE,
 	MENU,
 	INFO,
-	PLAYLIST_ADD,
-	PLAYLIST_OPEN,
 	OPEN_STREAM
 }

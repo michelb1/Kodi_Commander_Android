@@ -17,7 +17,7 @@ import de.imichelb.kodicmd.R;
 import de.imichelb.kodicmd.R.id;
 import de.imichelb.kodicmd.R.layout;
 import de.imichelb.kodicmd.R.string;
-import de.imichelb.kodicmd.kodi.KodiCommand;
+import de.imichelb.kodicmd.kodi.Command;
 import de.imichelb.kodicmd.model.TwitchItem;
 import de.imichelb.kodicmd.tasks.KodiCommandTask;
 import de.imichelb.kodicmd.tasks.TwitchDataTask;
@@ -63,7 +63,7 @@ public class TwitchFragment extends Fragment implements OnItemClickListener, Twi
 		String uri = TWITCH_URI + twitchItems.get(pos).getStreamer() + "/";
 		
 		//start stream on Kodi
-		new KodiCommandTask(context,KodiCommand.OPEN_STREAM, uri).execute();
+		new KodiCommandTask(context,Command.OPEN_STREAM, uri).execute();
 		
 		//Info Toast
 		Toast.makeText(context, R.string.play_stream, Toast.LENGTH_LONG).show();

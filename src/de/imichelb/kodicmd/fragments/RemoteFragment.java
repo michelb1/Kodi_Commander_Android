@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import de.imichelb.kodicmd.kodi.KodiCommand;
+import de.imichelb.kodicmd.kodi.Command;
 import de.imichelb.kodicmd.listener.RemoteKodiListener;
 import de.imichelb.kodicmd.listener.AbstractRemoteListener;
 import de.imichelb.kodicmd.listener.RemoteDialogListener;
@@ -35,27 +35,27 @@ public class RemoteFragment extends Fragment {
 	
 	private void initButtons(View view){
 			
-		addListener(R.id.remoteLeft,KodiCommand.LEFT,view);
-		addListener(R.id.remoteRight,KodiCommand.RIGHT,view);
-		addListener(R.id.remoteUp,KodiCommand.UP,view);
-		addListener(R.id.remoteDown,KodiCommand.DOWN,view);
-		addListener(R.id.remoteCenter,KodiCommand.ENTER,view);
-		addListener(R.id.remoteBackward,KodiCommand.LEFT,view);
-		addListener(R.id.remoteForward,KodiCommand.RIGHT,view);
-		addListener(R.id.remotePlay,KodiCommand.PLAY,view);
-		addListener(R.id.remoteStop,KodiCommand.STOP,view);
-		addListener(R.id.remoteCodec,KodiCommand.TITLE,view);
-		addListener(R.id.remoteInfo,KodiCommand.INFO,view);
-		addListener(R.id.remoteBack,KodiCommand.BACK,view);
-		addListener(R.id.remoteStepBackward,KodiCommand.STEP_BACKWARD,view);
-		addListener(R.id.remoteStepForward,KodiCommand.STEP_FORWARD,view);
+		addListener(R.id.remoteLeft,Command.LEFT,view);
+		addListener(R.id.remoteRight,Command.RIGHT,view);
+		addListener(R.id.remoteUp,Command.UP,view);
+		addListener(R.id.remoteDown,Command.DOWN,view);
+		addListener(R.id.remoteCenter,Command.ENTER,view);
+		addListener(R.id.remoteBackward,Command.LEFT,view);
+		addListener(R.id.remoteForward,Command.RIGHT,view);
+		addListener(R.id.remotePlay,Command.PLAY,view);
+		addListener(R.id.remoteStop,Command.STOP,view);
+		addListener(R.id.remoteCodec,Command.TITLE,view);
+		addListener(R.id.remoteInfo,Command.INFO,view);
+		addListener(R.id.remoteBack,Command.BACK,view);
+		addListener(R.id.remoteStepBackward,Command.STEP_BACKWARD,view);
+		addListener(R.id.remoteStepForward,Command.STEP_FORWARD,view);
 		
-		addListener(R.id.remoteMenu,KodiCommand.MENU,view);
+		addListener(R.id.remoteMenu,Command.MENU,view);
 		addListener(R.id.remoteText,null,view);
 
 	}
 	
-	private void addListener(int resId, KodiCommand cmd, View view){
+	private void addListener(int resId, Command cmd, View view){
 		
 		AbstractRemoteListener listener;
 		
