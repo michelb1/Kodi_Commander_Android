@@ -64,6 +64,11 @@ public class Kodi {
 		execute(req);
 	}
 	
+	private void clearPlayList() {
+		
+		//TODO
+	}
+	
 	/*
 	 * Gets the id of the active Player
 	 */
@@ -136,7 +141,12 @@ public class Kodi {
 	
 	public void keyEnter() throws MalformedURLException, IOException {
 		
-		basicInput("Input.Select");	
+		int id = getPlayerId();
+		
+		if(id == -1)
+			basicInput("Input.Select");
+		else
+			basicInput("Input.ShowOSD");
 	}
 	
 	public void stop() throws MalformedURLException, IOException {
@@ -193,7 +203,13 @@ public class Kodi {
 	
 	public void title() throws MalformedURLException, IOException {
 		
-		basicInput("Input.ShowCodec");
+		int id = getPlayerId();
+		
+		if(id == -1)
+			basicInput("Input.ContextMenu");
+		else
+			basicInput("Input.ShowCodec");
+		
 	}
 	
 	public void info() throws MalformedURLException, IOException {
