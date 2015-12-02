@@ -229,4 +229,14 @@ public class Kodi {
 		addToPlaylist(uri);
 		openPlaylist();
 	}
+
+	public void sendText(String text) throws MalformedURLException, IOException {
+		
+		String method = "Input.SendText";
+
+		KodiRequestParams params = new KodiRequestParams(text);
+		KodiRequest req = new KodiRequest(method,params);
+			
+		execute(req);
+	}
 }

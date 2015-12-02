@@ -4,6 +4,11 @@ package de.imichelb.kodicmd.kodi;
 public class KodiRequestParams {
 	
 	/*
+	 * Text input attributes
+	 */
+	private String text;
+	
+	/*
 	 * Player Attributes
 	 */
 	private Integer playerid;
@@ -37,6 +42,11 @@ public class KodiRequestParams {
 			
 		this.playlistid = playListId;
 		this.item = new Item(uri);
+	}
+	
+	public KodiRequestParams(String text){
+		
+		this.text = text;
 	}
 
 	private class Item{

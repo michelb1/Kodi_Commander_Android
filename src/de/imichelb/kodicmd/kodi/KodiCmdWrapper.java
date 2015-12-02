@@ -5,12 +5,12 @@ import java.net.MalformedURLException;
 
 public class KodiCmdWrapper {
 	
-	public KodiCmdWrapper(Command cmd, String uri) throws MalformedURLException, IOException{
+	public KodiCmdWrapper(Command cmd, String str) throws MalformedURLException, IOException{
 		
-		executeCmd(cmd,uri);	
+		executeCmd(cmd,str);	
 	}
 	
-	private void executeCmd(Command cmd, String uri) throws MalformedURLException, IOException{
+	private void executeCmd(Command cmd, String str) throws MalformedURLException, IOException{
 		
 		Kodi kodi = new Kodi();
 		
@@ -32,7 +32,7 @@ public class KodiCmdWrapper {
 				break;
 			case MENU: kodi.menu();
 				break;
-			case OPEN_STREAM: kodi.openStream(uri);
+			case OPEN_STREAM: kodi.openStream(str);
 				break;
 			case PLAY: kodi.play();
 				break;
@@ -48,6 +48,8 @@ public class KodiCmdWrapper {
 				break;
 			case UP: kodi.keyUp();
 				break;
+			case SEND_TEXT: kodi.sendText(str);
+			break;
 			default:
 				break;
 	

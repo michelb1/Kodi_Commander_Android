@@ -20,7 +20,7 @@ public class RemoteDialogListener extends AbstractRemoteListener{
 		
 		FragmentManager fm = ((FragmentActivity)context).getSupportFragmentManager();
 		
-		TextInputFragment textInput = new TextInputFragment();
+		TextInputFragment textInput = new TextInputFragment(context);
 		
 		textInput.show(fm, "Text Input Fragment");
 	}

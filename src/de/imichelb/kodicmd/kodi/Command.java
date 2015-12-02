@@ -17,5 +17,6 @@ public enum Command {
 	TITLE,
 	MENU,
 	INFO,
-	OPEN_STREAM
+	OPEN_STREAM,
+	SEND_TEXT;
 }
