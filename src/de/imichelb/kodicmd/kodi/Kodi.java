@@ -120,8 +120,13 @@ public class Kodi {
 	}
 	
 	public void keyUp() throws MalformedURLException, IOException {
+		
+		int id = getPlayerId();
 				
-		basicInput("Input.Up");
+		if(id == -1)
+			basicInput("Input.Up");
+		else
+			basicInput("Input.ShowOSD");		
 	}
 	
 	public void keyDown() throws MalformedURLException, IOException {
@@ -141,12 +146,7 @@ public class Kodi {
 	
 	public void keyEnter() throws MalformedURLException, IOException {
 		
-		int id = getPlayerId();
-		
-		if(id == -1)
-			basicInput("Input.Select");
-		else
-			basicInput("Input.ShowOSD");
+		basicInput("Input.Select");
 	}
 	
 	public void stop() throws MalformedURLException, IOException {
