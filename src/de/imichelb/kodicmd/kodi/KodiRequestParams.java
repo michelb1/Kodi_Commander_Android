@@ -1,5 +1,8 @@
 package de.imichelb.kodicmd.kodi;
 
+/*
+ * KODI API JSON Request Parameters
+ */
 @SuppressWarnings("unused")
 public class KodiRequestParams {
 	
@@ -27,28 +30,8 @@ public class KodiRequestParams {
 	private Integer position;
 	private Item item;
 	
-	public KodiRequestParams(int playerId, String[] properties) {
-		
-		this.playerid = playerId;
-		this.properties = properties;		
-	}
+	public KodiRequestParams(){}
 	
-	public KodiRequestParams(int playListId){
-		
-		this.item = new Item(playListId);
-	}
-	
-	public KodiRequestParams(int playListId, String uri){
-			
-		this.playlistid = playListId;
-		this.item = new Item(uri);
-	}
-	
-	public KodiRequestParams(String text){
-		
-		this.text = text;
-	}
-
 	private class Item{
 		
 		public String file;
@@ -64,7 +47,36 @@ public class KodiRequestParams {
 		public Item(String file){
 			
 			this.file = file;
-		}
-					
+		}					
+	}
+	
+	/*
+	 * Parameter Setter
+	 */
+	public void setClearPlayListParams(int playlistId) {
+		
+		this.playlistid = playlistId;
+	}
+	
+	public void setOpenPlayListParams(int playlistId) {
+		
+		this.item = new Item(playlistId);
+	}
+	
+	public void setAddToPlayListParams(int playListId, String uri) {
+		
+		this.playlistid = playListId;
+		this.item = new Item(uri);
+	}
+	
+	public void setSendTextParams(String text) {
+		
+		this.text = text;
+	}
+	
+	public void setPlayerCtrlParams(int playerId, String[] properties) {
+		
+		this.playerid = playerId;
+		this.properties = properties;
 	}
 }

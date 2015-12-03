@@ -46,27 +46,43 @@ public class Kodi {
 		return response;
 	}
 	
-	private void addToPlaylist(String uri) throws MalformedURLException, IOException {
+	/*
+	 * add uri to playlist
+	 */
+	private void addToPlaylist(String uri, int id) throws MalformedURLException, IOException {
 		
 		String method = "Playlist.Add";
-		KodiRequestParams params = new KodiRequestParams(getPlayListId(),uri);
+		KodiRequestParams params = new KodiRequestParams();
+		params.setAddToPlayListParams(id, uri);
 		KodiRequest req = new KodiRequest(method,params);
 		
 		execute(req);
 	}
 	
-	private void openPlaylist() throws MalformedURLException, IOException {
+	/*
+	 * Start the playlist
+	 */
+	private void openPlaylist(int id) throws MalformedURLException, IOException {
 		
 		String method = "Player.Open";
-		KodiRequestParams params = new KodiRequestParams(getPlayListId());
+		KodiRequestParams params = new KodiRequestParams();
+		params.setOpenPlayListParams(id);
 		KodiRequest req = new KodiRequest(method,params);
 		
 		execute(req);
 	}
 	
-	private void clearPlayList() {
+	/*
+	 * Clears every item in the playlist
+	 */
+	private void clearPlayList(int id) throws MalformedURLException, IOException {
 		
-		//TODO
+		String method = "Playlist.Clear";
+		KodiRequestParams params = new KodiRequestParams();
+		params.setClearPlayListParams(id);
+		KodiRequest req = new KodiRequest(method,params);
+		
+		execute(req);
 	}
 	
 	/*
@@ -89,15 +105,19 @@ public class Kodi {
 	/*
 	 * Gets the id of the active Playlist
 	 */
+	@SuppressWarnings("unused")
 	private int getPlayListId() throws MalformedURLException, IOException {
 				
 		String method = "Player.GetProperties";
 		String[] props = {"playlistid","position"};
 		
 		int playerId = getPlayerId();
-		if(playerId == -1) playerId = 1; //TODO: Change this!
 		
-		KodiRequestParams params = new KodiRequestParams(playerId,props);
+		//No Player active -> no active playlist
+		if(playerId == -1) return -1;
+		
+		KodiRequestParams params = new KodiRequestParams();
+		params.setPlayerCtrlParams(playerId, props);
 		KodiRequest req = new KodiRequest(method,params);		
 		
 		String response = execute(req);
@@ -156,7 +176,8 @@ public class Kodi {
 		int id = getPlayerId();
 		
 		if(id != -1) {
-			KodiRequestParams params = new KodiRequestParams(id,(String[])null);
+			KodiRequestParams params = new KodiRequestParams();
+			params.setPlayerCtrlParams(id, null);
 			KodiRequest req = new KodiRequest(method,params);
 			
 			execute(req);
@@ -169,7 +190,8 @@ public class Kodi {
 		int id = getPlayerId();
 		
 		if(id != -1) {
-			KodiRequestParams params = new KodiRequestParams(id,(String[])null);
+			KodiRequestParams params = new KodiRequestParams();
+			params.setPlayerCtrlParams(id, null);
 			KodiRequest req = new KodiRequest(method,params);
 			
 			execute(req);
@@ -224,17 +246,20 @@ public class Kodi {
 	
 	public void openStream(String uri) throws MalformedURLException, IOException {
 		
-		//TODO: add return statements and parameters to the playlist methods to avoid redundant requests
+		int id = 1; //The id of the Video Playlist is always "1"
+		
 		stop();
-		addToPlaylist(uri);
-		openPlaylist();
+		clearPlayList(id);
+		addToPlaylist(uri,id);
+		openPlaylist(id);
 	}
 
 	public void sendText(String text) throws MalformedURLException, IOException {
 		
 		String method = "Input.SendText";
 
-		KodiRequestParams params = new KodiRequestParams(text);
+		KodiRequestParams params = new KodiRequestParams();
+		params.setSendTextParams(text);
 		KodiRequest req = new KodiRequest(method,params);
 			
 		execute(req);
