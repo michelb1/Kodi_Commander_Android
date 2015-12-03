@@ -139,6 +139,34 @@ public class Kodi {
 		execute(req);
 	}
 	
+	private void seek(String value) throws MalformedURLException, IOException {
+		
+		String method = "Player.Seek";
+		int id = getPlayerId();
+		
+		if(id != -1) {
+			KodiRequestParams params = new KodiRequestParams();
+			params.setSeekParams(id, value);
+			KodiRequest req = new KodiRequest(method,params);
+			
+			execute(req);
+		}
+	}
+	
+	private void goTo(String value) throws MalformedURLException, IOException {
+		
+		String method = "Player.GoTo";
+		int id = getPlayerId();
+		
+		if(id != -1) {
+			KodiRequestParams params = new KodiRequestParams();
+			params.setGoToParams(id, value);
+			KodiRequest req = new KodiRequest(method,params);
+			
+			execute(req);
+		}
+	}
+	
 	public void keyUp() throws MalformedURLException, IOException {
 		
 		int id = getPlayerId();
@@ -198,24 +226,24 @@ public class Kodi {
 		}
 	}
 	
-	public void forward() {
+	public void forward() throws MalformedURLException, IOException {
 		
-		//TODO
+		seek("smallforward");
 	}
 	
-	public void backward() {
+	public void backward() throws MalformedURLException, IOException {
 
-		//TODO
+		seek("smallbackward");	
 	}
 	
-	public void stepForward() {
+	public void stepForward() throws MalformedURLException, IOException {
 		
-		//TODO
+		goTo("next");
 	}
 	
-	public void stepBackward() {
+	public void stepBackward() throws MalformedURLException, IOException {
 		
-		//TODO
+		goTo("previous");
 	}
 	
 	public void back() throws MalformedURLException, IOException {

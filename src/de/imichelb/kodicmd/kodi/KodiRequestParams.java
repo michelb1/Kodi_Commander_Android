@@ -21,6 +21,7 @@ public class KodiRequestParams {
 	 * Player control attributes
 	 */
 	private String to;
+	private String value;
 	
 	/*
 	 * Playlist Attributes
@@ -78,5 +79,17 @@ public class KodiRequestParams {
 		
 		this.playerid = playerId;
 		this.properties = properties;
+	}
+	
+	public void setSeekParams(int playerid, String value){
+		
+		this.playerid = playerid;
+		this.value = value;
+	}
+	
+	public void setGoToParams(int playerid, String value){
+		
+		this.playerid = playerid;
+		this.to = value;
 	}
 }

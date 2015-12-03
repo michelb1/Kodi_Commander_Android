@@ -40,8 +40,8 @@ public class RemoteFragment extends Fragment {
 		addListener(R.id.remoteUp,Command.UP,view);
 		addListener(R.id.remoteDown,Command.DOWN,view);
 		addListener(R.id.remoteCenter,Command.ENTER,view);
-		addListener(R.id.remoteBackward,Command.LEFT,view);
-		addListener(R.id.remoteForward,Command.RIGHT,view);
+		addListener(R.id.remoteBackward,Command.BACKWARD,view);
+		addListener(R.id.remoteForward,Command.FORWARD,view);
 		addListener(R.id.remotePlay,Command.PLAY,view);
 		addListener(R.id.remoteStop,Command.STOP,view);
 		addListener(R.id.remoteCodec,Command.TITLE,view);
