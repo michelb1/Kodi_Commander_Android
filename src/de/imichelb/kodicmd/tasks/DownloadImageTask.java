@@ -9,16 +9,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import de.imichelb.kodicmd.model.TwitchItem;
 
 public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 	
     ImageView view;
     ProgressBar progress;
+    TwitchItem item;
 
-    public DownloadImageTask(ImageView view, ProgressBar progress) {
+    public DownloadImageTask(ImageView view, ProgressBar progress, TwitchItem item) {
     	
         this.view = view;
         this.progress = progress;
+        this.item = item;
     }
 
     protected Bitmap doInBackground(String... urls) {
@@ -36,6 +39,9 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
             e.printStackTrace();
         }
         
+        //cache the downloaded image
+        item.setPreviewImg(bitmap);
+        
         return bitmap;
     }
 
@@ -43,5 +49,11 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     	
         view.setImageBitmap(result);
         progress.setVisibility(View.GONE);
-    }    
+    }
+
+	@Override
+	protected void onPreExecute() {
+		
+		progress.setVisibility(View.VISIBLE);
+	}    
 }
