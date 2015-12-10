@@ -76,7 +76,7 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 	@Override
 	protected void onCancelled(Object result) {
 		
-		Toast.makeText(context, "KodiTask Timeout", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, R.string.kodi_timeout, Toast.LENGTH_LONG).show();
 	}
 
 	@Override

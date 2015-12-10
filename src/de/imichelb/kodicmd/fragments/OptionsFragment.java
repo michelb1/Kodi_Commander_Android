@@ -69,6 +69,6 @@ public class OptionsFragment extends Fragment {
 		opt.setKodiIp(newIp);
 		opt.setTwitchName(newName);
 		
-		Toast.makeText(context, "Options saved!", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, R.string.options_save, Toast.LENGTH_LONG).show();
 	}
 }

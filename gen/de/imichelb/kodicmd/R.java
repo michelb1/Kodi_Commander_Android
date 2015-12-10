@@ -20,19 +20,31 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int action_bar_color1=0x7f040007;
-        public static final int action_bar_color2=0x7f040008;
+        public static final int action_bar_color1=0x7f040008;
+        public static final int action_bar_color2=0x7f040009;
         /**  Action Bar 
          */
-        public static final int action_bar_text=0x7f040006;
-        public static final int counter_text_bg=0x7f040004;
-        public static final int counter_text_color=0x7f040005;
+        public static final int action_bar_text=0x7f040007;
+        public static final int counter_text_bg=0x7f040005;
+        public static final int counter_text_color=0x7f040006;
         public static final int list_background=0x7f040001;
-        public static final int list_background_pressed=0x7f040002;
-        public static final int list_divider=0x7f040003;
+        public static final int list_background_light=0x7f040002;
+        public static final int list_background_pressed=0x7f040003;
+        public static final int list_divider=0x7f040004;
         /**  Menu 
          */
         public static final int list_item_title=0x7f040000;
+        /**  Twitch List Divider 
+         */
+        public static final int twitch_div1=0x7f04000d;
+        public static final int twitch_div2=0x7f04000e;
+        public static final int twitch_div3=0x7f04000f;
+        public static final int twitch_div4=0x7f040010;
+        /**  Twitch View
+         */
+        public static final int twitch_title_bg1=0x7f04000a;
+        public static final int twitch_title_bg2=0x7f04000b;
+        public static final int twitch_title_bg3=0x7f04000c;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -67,46 +79,50 @@ public final class R {
         public static final int info_passive=0x7f020017;
         public static final int left_active=0x7f020018;
         public static final int left_passive=0x7f020019;
-        public static final int list_item_bg_normal=0x7f02001a;
-        public static final int list_item_bg_pressed=0x7f02001b;
-        public static final int list_selector=0x7f02001c;
-        public static final int menu_active=0x7f02001d;
-        public static final int menu_passive=0x7f02001e;
-        public static final int play_active=0x7f02001f;
-        public static final int play_passive=0x7f020020;
-        public static final int remote_back=0x7f020021;
-        public static final int remote_backward=0x7f020022;
-        public static final int remote_center=0x7f020023;
-        public static final int remote_codec=0x7f020024;
-        public static final int remote_down=0x7f020025;
-        public static final int remote_forward=0x7f020026;
-        public static final int remote_info=0x7f020027;
-        public static final int remote_left=0x7f020028;
-        public static final int remote_menu=0x7f020029;
-        public static final int remote_play=0x7f02002a;
-        public static final int remote_right=0x7f02002b;
-        public static final int remote_step_back=0x7f02002c;
-        public static final int remote_step_forward=0x7f02002d;
-        public static final int remote_stop=0x7f02002e;
-        public static final int remote_text=0x7f02002f;
-        public static final int remote_up=0x7f020030;
-        public static final int right_active=0x7f020031;
-        public static final int right_passive=0x7f020032;
-        public static final int stepbackward_active=0x7f020033;
-        public static final int stepbackward_passive=0x7f020034;
-        public static final int stepforward_active=0x7f020035;
-        public static final int stepforward_passive=0x7f020036;
-        public static final int stop_active=0x7f020037;
-        public static final int stop_passive=0x7f020038;
-        public static final int text_active=0x7f020039;
-        public static final int text_passive=0x7f02003a;
-        public static final int title_active=0x7f02003b;
-        public static final int title_passive=0x7f02003c;
-        public static final int up_active=0x7f02003d;
-        public static final int up_passive=0x7f02003e;
+        public static final int list_divider=0x7f02001a;
+        public static final int list_item_bg_normal=0x7f02001b;
+        public static final int list_item_bg_pressed=0x7f02001c;
+        public static final int list_selector=0x7f02001d;
+        public static final int menu_active=0x7f02001e;
+        public static final int menu_passive=0x7f02001f;
+        public static final int play_active=0x7f020020;
+        public static final int play_passive=0x7f020021;
+        public static final int remote_back=0x7f020022;
+        public static final int remote_backward=0x7f020023;
+        public static final int remote_center=0x7f020024;
+        public static final int remote_codec=0x7f020025;
+        public static final int remote_down=0x7f020026;
+        public static final int remote_forward=0x7f020027;
+        public static final int remote_info=0x7f020028;
+        public static final int remote_left=0x7f020029;
+        public static final int remote_menu=0x7f02002a;
+        public static final int remote_play=0x7f02002b;
+        public static final int remote_right=0x7f02002c;
+        public static final int remote_step_back=0x7f02002d;
+        public static final int remote_step_forward=0x7f02002e;
+        public static final int remote_stop=0x7f02002f;
+        public static final int remote_text=0x7f020030;
+        public static final int remote_up=0x7f020031;
+        public static final int right_active=0x7f020032;
+        public static final int right_passive=0x7f020033;
+        public static final int stepbackward_active=0x7f020034;
+        public static final int stepbackward_passive=0x7f020035;
+        public static final int stepforward_active=0x7f020036;
+        public static final int stepforward_passive=0x7f020037;
+        public static final int stop_active=0x7f020038;
+        public static final int stop_passive=0x7f020039;
+        public static final int text_active=0x7f02003a;
+        public static final int text_passive=0x7f02003b;
+        public static final int title_active=0x7f02003c;
+        public static final int title_passive=0x7f02003d;
+        public static final int twitch_bg_ph=0x7f02003e;
+        public static final int twitch_bottom=0x7f02003f;
+        public static final int twitch_top=0x7f020040;
+        public static final int up_active=0x7f020041;
+        public static final int up_passive=0x7f020042;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0023;
+        public static final int action_settings=0x7f0a0024;
         public static final int counter=0x7f0a0005;
         public static final int drawer_layout=0x7f0a0000;
         public static final int frame_container=0x7f0a0001;
@@ -115,7 +131,7 @@ public final class R {
         public static final int kodiText=0x7f0a001b;
         public static final int kodi_ip=0x7f0a0009;
         public static final int list_slidermenu=0x7f0a0002;
-        public static final int preview=0x7f0a0020;
+        public static final int preview=0x7f0a001f;
         public static final int remoteBack=0x7f0a0019;
         public static final int remoteBackward=0x7f0a0014;
         public static final int remoteCenter=0x7f0a000f;
@@ -134,14 +150,15 @@ public final class R {
         public static final int remoteUp=0x7f0a000c;
         public static final int save_button=0x7f0a000a;
         public static final int send_button=0x7f0a001c;
-        public static final int stream=0x7f0a001f;
+        public static final int stream=0x7f0a0020;
         public static final int title=0x7f0a0004;
         public static final int title1=0x7f0a0006;
         public static final int title2=0x7f0a0008;
+        public static final int twitch_list_progress_bar=0x7f0a0022;
         public static final int twitch_progress_bar=0x7f0a001d;
         public static final int twitch_stream_list=0x7f0a001e;
         public static final int twitchname=0x7f0a0007;
-        public static final int txtLabel=0x7f0a0022;
+        public static final int txtLabel=0x7f0a0023;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -161,10 +178,15 @@ public final class R {
         public static final int app_name=0x7f060000;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f060005;
+        public static final int desc_list_item_icon=0x7f060007;
         public static final int kodi_error=0x7f060003;
+        public static final int kodi_timeout=0x7f060004;
+        public static final int options_save=0x7f060006;
+        /**  Toast Messages 
+         */
         public static final int play_stream=0x7f060002;
-        public static final int twitch_error=0x7f060004;
+        public static final int twitch_error=0x7f060005;
+        public static final int twitch_preview=0x7f060008;
     }
     public static final class style {
         public static final int ActionBarText=0x7f080003;

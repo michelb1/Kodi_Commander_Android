@@ -20,8 +20,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" 
         android:choiceMode="singleChoice"
-        android:divider="@color/list_divider"
-        android:dividerHeight="1dp"        
-        android:background="@color/list_background"/>
+        android:divider="@color/twitch_div4"
+        android:dividerHeight="2dp"        
+        />
 
 </RelativeLayout>

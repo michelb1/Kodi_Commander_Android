@@ -112,7 +112,7 @@ public class Twitch {
 			
 			streamer = list.channel.name;
 			game = list.game;
-			imageUrl = list.preview.medium;
+			imageUrl = list.preview.large;
 			viewer = list.viewers;
 			
 			items.add(new TwitchItem(streamer, game, imageUrl, viewer));

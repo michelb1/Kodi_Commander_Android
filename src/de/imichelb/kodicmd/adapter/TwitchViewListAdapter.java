@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import de.imichelb.kodicmd.R;
 import de.imichelb.kodicmd.model.TwitchItem;
@@ -61,7 +62,9 @@ public class TwitchViewListAdapter extends BaseAdapter{
 		
 		ImageView image = (ImageView) convertView.findViewById(R.id.preview);
 		
-		new DownloadImageTask(image).execute(items.get(position).getImageUrl());
+		ProgressBar progress = (ProgressBar) convertView.findViewById(R.id.twitch_list_progress_bar);
+		
+		new DownloadImageTask(image, progress).execute(items.get(position).getImageUrl());
 		
 		return convertView;
 	}

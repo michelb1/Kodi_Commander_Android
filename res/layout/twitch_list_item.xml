@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" 
-    android:orientation="vertical">
-    
-    <TextView
-        android:id="@+id/stream"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textColor="@color/list_item_title"/>
-    
-    <ImageView android:id="@+id/preview"
-        android:layout_width="wrap_content"        
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@id/stream"/>
-    
-    <TextView
-        android:id="@+id/game"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textColor="@color/list_item_title"/>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/preview"
+            android:contentDescription="@string/twitch_preview"
+       		android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/twitch_bg_ph"
+        	android:scaleType="fitCenter" />
+		
+         <TextView
+             android:id="@+id/stream"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="top"
+             android:gravity="center_horizontal"
+             android:textColor="@color/list_item_title"
+             android:background="@drawable/twitch_top"/>
+        
+        <TextView
+            android:id="@+id/game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
+            android:textColor="@color/list_item_title"
+            android:background="@drawable/twitch_bottom"/>
+        
+        <ProgressBar
+            android:id="@+id/twitch_list_progress_bar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical" />
+	        
+    </FrameLayout>
