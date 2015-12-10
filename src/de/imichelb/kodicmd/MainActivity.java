@@ -6,19 +6,15 @@ import de.imichelb.kodicmd.fragments.RemoteFragment;
 import de.imichelb.kodicmd.fragments.TwitchFragment;
 import de.imichelb.kodicmd.fragments.YoutubeFragment;
 import de.imichelb.kodicmd.model.NavDrawerItem;
-import de.imichelb.kodicmd.model.Options;
 import de.imichelb.kodicmd.R;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -113,13 +109,16 @@ public class MainActivity extends FragmentActivity {
 		}
 	}
 	
+	/*
+	 * This method should be the first to create the Options Object
+	 */
 	private void loadOptions(){
 		
 		Options opt = Options.getInstance();
+		Persistance pers = new PersitanceImpl(this);
 		
-		SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-		opt.setTwitchName(pref.getString("twitchName", "default"));
-		opt.setKodiIp(pref.getString("kodiIp", "default"));
+		opt.setPersistanceManager(pers);
+		opt.init();
 	}
 
 	private class SlideMenuClickListener implements

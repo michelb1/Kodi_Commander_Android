@@ -6,7 +6,7 @@ import java.net.MalformedURLException;
 import com.google.gson.Gson;
 
 import android.util.Log;
-import de.imichelb.kodicmd.model.Options;
+import de.imichelb.kodicmd.Options;
 import de.imichelb.kodicmd.utils.HttpUtil;
 
 public class Kodi {

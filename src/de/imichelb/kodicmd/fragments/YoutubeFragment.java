@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import de.imichelb.kodicmd.R;
-import de.imichelb.kodicmd.R.layout;
 
 public class YoutubeFragment extends Fragment {
 	

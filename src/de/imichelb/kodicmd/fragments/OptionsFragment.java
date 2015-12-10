@@ -2,19 +2,15 @@ package de.imichelb.kodicmd.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+import de.imichelb.kodicmd.Options;
 import de.imichelb.kodicmd.R;
-import de.imichelb.kodicmd.R.id;
-import de.imichelb.kodicmd.R.layout;
-import de.imichelb.kodicmd.model.Options;
 
 public class OptionsFragment extends Fragment {
 	
@@ -59,7 +55,7 @@ public class OptionsFragment extends Fragment {
 		});
 	}
 
-	private void  setValues(){
+	private void setValues(){
 
 		ip.setText(opt.getKodiIp());
 		twitchName.setText(opt.getTwitchName());
@@ -69,17 +65,10 @@ public class OptionsFragment extends Fragment {
 		
 		String newIp = ip.getText().toString();
 		String newName = twitchName.getText().toString();
-		
-		SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
-		
-		Editor edit = pref.edit();
-		
-		edit.putString("kodiIp", newIp);
-		edit.putString("twitchName", newName);
-		
-		edit.commit();
-		
+				
 		opt.setKodiIp(newIp);
 		opt.setTwitchName(newName);
+		
+		Toast.makeText(context, "Options saved!", Toast.LENGTH_LONG).show();
 	}
 }
