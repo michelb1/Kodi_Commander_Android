@@ -13,9 +13,9 @@ import de.imichelb.kodicmd.model.TwitchItem;
 
 public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 	
-    ImageView view;
-    ProgressBar progress;
-    TwitchItem item;
+    private ImageView view;
+    private ProgressBar progress;
+    private TwitchItem item;
 
     public DownloadImageTask(ImageView view, ProgressBar progress, TwitchItem item) {
     	
