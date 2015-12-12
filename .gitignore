@@ -1,3 +1,7 @@
+#ignored Folders
+gen/
+bin/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -41,3 +45,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+[ALIAS]
+apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0r git rm --cached
