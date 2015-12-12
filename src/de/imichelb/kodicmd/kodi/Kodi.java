@@ -292,4 +292,16 @@ public class Kodi {
 			
 		execute(req);
 	}
+	
+	public void getTvShows() throws MalformedURLException, IOException {
+	
+		String method = "VideoLibrary.GetTVShows";
+		String[] props = {"title"};
+		
+		KodiRequestParams params = new KodiRequestParams();
+		params.setVideoLibParams(props);
+		KodiRequest req = new KodiRequest(method,params);
+			
+		execute(req);
+	}
 }

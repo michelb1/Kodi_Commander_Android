@@ -81,6 +81,11 @@ public class KodiRequestParams {
 		this.properties = properties;
 	}
 	
+	public void setVideoLibParams(String[] properties) {
+		
+		this.properties = properties;
+	}
+	
 	public void setSeekParams(int playerid, String value){
 		
 		this.playerid = playerid;
