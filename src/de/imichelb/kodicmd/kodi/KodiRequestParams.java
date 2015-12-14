@@ -31,6 +31,13 @@ public class KodiRequestParams {
 	private Integer position;
 	private Item item;
 	
+	/*
+	 * AudioLib
+	 */
+	private Limits limits;
+	private Sort sort;
+	private Filter filter;
+	
 	public KodiRequestParams(){}
 	
 	private class Item{
@@ -49,6 +56,36 @@ public class KodiRequestParams {
 			
 			this.file = file;
 		}					
+	}
+	
+	private class Limits {
+		
+		private Integer start;
+		
+		public Limits(int start) {
+			
+			this.start = start;
+		}
+	}
+	
+	private class Sort {
+		
+		private String method;
+		
+		public Sort(String method) {
+			
+			this.method = method;
+		}
+	}
+	
+	private class Filter {
+		
+		private Integer albumid;
+		
+		public Filter(int id) {
+			
+			this.albumid = id;
+		}
 	}
 	
 	/*
@@ -84,6 +121,20 @@ public class KodiRequestParams {
 	public void setVideoLibParams(String[] properties) {
 		
 		this.properties = properties;
+	}
+	
+	public void setAlbumLibParams(String[] properties, String sortBy, int limit) {
+		
+		this.properties = properties;
+		this.sort = new Sort(sortBy);
+		this.limits = new Limits(limit);
+	}
+	
+	public void setAlbumSongsParams(String[] properties, String sortBy, int albumId) {
+		
+		this.properties = properties;
+		this.sort = new Sort(sortBy);
+		this.filter = new Filter(albumId);
 	}
 	
 	public void setSeekParams(int playerid, String value){

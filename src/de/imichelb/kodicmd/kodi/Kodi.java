@@ -304,4 +304,30 @@ public class Kodi {
 			
 		execute(req);
 	}
+	
+	public void getMusicAlbums() throws MalformedURLException, IOException {
+		
+		String method = "AudioLibrary.GetAlbums";
+		String[] props = {"artist", "title", "thumbnail"};
+		
+		KodiRequestParams params = new KodiRequestParams();
+		params.setAlbumLibParams(props, "artist", 0);
+		
+		KodiRequest req = new KodiRequest(method,params);
+			
+		execute(req);
+	}
+	
+	public void getAlbumSongs(int albumId) throws MalformedURLException, IOException {
+		
+		String method = "AudioLibrary.GetSongs";
+		String[] props = {"artist", "title", "track", "duration"};
+		
+		KodiRequestParams params = new KodiRequestParams();
+		params.setAlbumSongsParams(props, "track", albumId);
+		
+		KodiRequest req = new KodiRequest(method,params);
+			
+		execute(req);
+	}
 }
