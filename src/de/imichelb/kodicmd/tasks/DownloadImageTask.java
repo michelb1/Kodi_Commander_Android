@@ -9,18 +9,24 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import de.imichelb.kodicmd.model.TwitchItem;
+import de.imichelb.kodicmd.model.ImageCache;
 
 public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 	
     private ImageView view;
     private ProgressBar progress;
-    private TwitchItem item;
+    private ImageCache item;
 
-    public DownloadImageTask(ImageView view, ProgressBar progress, TwitchItem item) {
+    public DownloadImageTask(ImageView view, ProgressBar progress, ImageCache item) {
     	
         this.view = view;
         this.progress = progress;
+        this.item = item;
+    }
+    
+    public DownloadImageTask(ImageView view, ImageCache item) {
+    	
+        this.view = view;
         this.item = item;
     }
 
@@ -32,7 +38,7 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         try {
             InputStream in = new java.net.URL(urldisplay).openStream();
             bitmap = BitmapFactory.decodeStream(in);
-            
+                        
         } catch (Exception e) {
         	
             Log.e("Error", e.getMessage());
@@ -48,12 +54,15 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     protected void onPostExecute(Bitmap result) {
     	
         view.setImageBitmap(result);
-        progress.setVisibility(View.GONE);
+        
+        if(progress != null)
+        	progress.setVisibility(View.GONE);
     }
 
 	@Override
 	protected void onPreExecute() {
 		
-		progress.setVisibility(View.VISIBLE);
+		if(progress != null)
+			progress.setVisibility(View.VISIBLE);
 	}    
 }

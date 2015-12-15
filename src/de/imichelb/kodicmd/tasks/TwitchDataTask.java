@@ -14,7 +14,7 @@ import de.imichelb.kodicmd.R;
 import de.imichelb.kodicmd.adapter.TwitchViewListAdapter;
 import de.imichelb.kodicmd.model.TwitchItem;
 import de.imichelb.kodicmd.twitch.Twitch;
-import de.imichelb.kodicmd.twitch.TwitchItemObserver;
+import de.imichelb.kodicmd.twitch.TwitchInterface;
 
 public class TwitchDataTask extends AsyncTask<Object, Object, Object>{
 	
@@ -22,9 +22,9 @@ public class TwitchDataTask extends AsyncTask<Object, Object, Object>{
 	private ListView list;
 	private Context context;
 	private TwitchViewListAdapter adapter;
-	private TwitchItemObserver listener;
+	private TwitchInterface listener;
 	
-	public TwitchDataTask(Context context, ProgressBar progress, ListView list, TwitchItemObserver listener){
+	public TwitchDataTask(Context context, ProgressBar progress, ListView list, TwitchInterface listener){
 		
 		this.progress = progress;
 		this.list = list;

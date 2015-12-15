@@ -1,6 +1,7 @@
 package de.imichelb.kodicmd;
 
 import de.imichelb.kodicmd.adapter.NavDrawerListAdapter;
+import de.imichelb.kodicmd.fragments.MusicLibFragment;
 import de.imichelb.kodicmd.fragments.OptionsFragment;
 import de.imichelb.kodicmd.fragments.RemoteFragment;
 import de.imichelb.kodicmd.fragments.TwitchFragment;
@@ -47,10 +48,25 @@ public class MainActivity extends FragmentActivity {
 		
 		setContentView(R.layout.activity_main);
 		
-		loadOptions();
-
+		initMenu();		
+		initActionBar();
+		initOptions();
+		
+		//Set the App title
 		mTitle = mDrawerTitle = getTitle();
 
+		//Display "Start" Fragment
+		if (savedInstanceState == null) {
+
+			displayView(0);
+		}
+	}
+	
+	/*
+	 * Sets up the Drawer Menu
+	 */
+	private void initMenu() {
+		
 		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
 		navMenuIcons = getResources()
@@ -63,23 +79,29 @@ public class MainActivity extends FragmentActivity {
 
 		// Remote
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-		// Twitch
+		// MusicLib
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-		// Youtube
+		// Twitch
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+		// Youtube
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
 		// Options
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));	
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));	
 
-		// Recycle the typed array
 		navMenuIcons.recycle();
 
 		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
-		// setting the nav menu list adapter
 		adapter = new NavDrawerListAdapter(getApplicationContext(),
 				navDrawerItems);
 		mDrawerList.setAdapter(adapter);
-
+	}
+	
+	/*
+	 * Sets up the ActionBar
+	 */
+	private void initActionBar() {
+		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
 
@@ -100,19 +122,14 @@ public class MainActivity extends FragmentActivity {
 				invalidateOptionsMenu();
 			}
 		};
+		
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-		if (savedInstanceState == null) {
-			
-			// on first time display view for first nav item
-			displayView(0);
-		}
 	}
 	
 	/*
 	 * This method should be the first to create the Options Object
 	 */
-	private void loadOptions(){
+	private void initOptions(){
 		
 		Options opt = Options.getInstance();
 		Persistance pers = new PersitanceImpl(this);
@@ -120,7 +137,10 @@ public class MainActivity extends FragmentActivity {
 		opt.setPersistanceManager(pers);
 		opt.init();
 	}
-
+	
+	/*
+	 * Click Listener for the Menu
+	 */
 	private class SlideMenuClickListener implements
 			ListView.OnItemClickListener {
 		
@@ -129,6 +149,51 @@ public class MainActivity extends FragmentActivity {
 				long id) {
 
 			displayView(position);
+		}
+	}
+	
+	/*
+	 * Displays the fragment
+	 */
+	private void displayView(int position) {
+
+		Fragment fragment = null;
+		
+		switch (position) {
+		case 0:
+			fragment = new RemoteFragment(this);
+			break;
+		case 1:
+			fragment = new MusicLibFragment(this);
+			break;
+		case 2:
+			fragment = new TwitchFragment(this);
+			break;
+		case 3:
+			fragment = new YoutubeFragment();
+			break;
+		case 4:
+			fragment = new OptionsFragment(this);
+			break;
+		default:
+			break;
+		}
+
+		if (fragment != null) {
+		
+			FragmentManager fragmentManager = getFragmentManager();
+
+			fragmentManager.beginTransaction()
+					.replace(R.id.frame_container, fragment).commit();
+
+			mDrawerList.setItemChecked(position, true);
+			mDrawerList.setSelection(position);
+			setTitle(navMenuTitles[position]);
+			mDrawerLayout.closeDrawer(mDrawerList);
+
+		} else {
+			
+			Log.e("MainActivity", "Error in creating fragment");
 		}
 	}
 
@@ -164,46 +229,7 @@ public class MainActivity extends FragmentActivity {
 		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
-
-	private void displayView(int position) {
-
-		Fragment fragment = null;
-		
-		switch (position) {
-		case 0:
-			fragment = new RemoteFragment(this);
-			break;
-		case 1:
-			fragment = new TwitchFragment(this);
-			break;
-		case 2:
-			fragment = new YoutubeFragment();
-			break;
-		case 3:
-			fragment = new OptionsFragment(this);
-			break;
-		default:
-			break;
-		}
-
-		if (fragment != null) {
-		
-			FragmentManager fragmentManager = getFragmentManager();
-
-			fragmentManager.beginTransaction()
-					.replace(R.id.frame_container, fragment).commit();
-
-			mDrawerList.setItemChecked(position, true);
-			mDrawerList.setSelection(position);
-			setTitle(navMenuTitles[position]);
-			mDrawerLayout.closeDrawer(mDrawerList);
-
-		} else {
-			
-			Log.e("MainActivity", "Error in creating fragment");
-		}
-	}
-
+	
 	@Override
 	public void setTitle(CharSequence title) {
 	

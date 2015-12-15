@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/viewStyle">
+
+    <TextView
+        android:id="@+id/emptyList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:text="@string/emptyList"
+        android:textColor="@color/list_item_title" />
+    
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <ListView
+        android:id="@+id/album_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" 
+        android:choiceMode="singleChoice"
+        android:divider="@color/twitch_div4"
+        android:dividerHeight="2dp"        
+        />
+    
+     <ListView
+        android:id="@+id/track_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" 
+        android:choiceMode="singleChoice"
+        android:divider="@color/twitch_div4"
+        android:dividerHeight="2dp"        
+        />
+
+</RelativeLayout>

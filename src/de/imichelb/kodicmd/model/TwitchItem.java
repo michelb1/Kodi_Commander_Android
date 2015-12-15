@@ -2,7 +2,7 @@ package de.imichelb.kodicmd.model;
 
 import android.graphics.Bitmap;
 
-public class TwitchItem {
+public class TwitchItem implements ImageCache{
 
 	private String streamer;
 	private String game;
@@ -38,11 +38,13 @@ public class TwitchItem {
 		return viewer;
 	}
 	
+	@Override
 	public Bitmap getPreviewImg() {
 		
 		return previewImg;
 	}
 
+	@Override
 	public void setPreviewImg(Bitmap previewImg) {
 		
 		this.previewImg = previewImg;

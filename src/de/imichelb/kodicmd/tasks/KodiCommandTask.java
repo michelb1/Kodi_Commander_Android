@@ -17,6 +17,11 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 	private String uri;
 	private Context context;
 	
+	public KodiCommandTask(Context context){
+		
+		this.context = context;
+	}
+	
 	public KodiCommandTask(Context context, Command cmd){
 		
 		this.cmd = cmd;

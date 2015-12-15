@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import de.imichelb.kodicmd.model.TwitchItem;
 
-public interface TwitchItemObserver {
+public interface TwitchInterface {
 	
 	public void setTwitchList(ArrayList<TwitchItem> list);
 }

@@ -2,11 +2,13 @@ package de.imichelb.kodicmd.kodi;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
 import android.util.Log;
 import de.imichelb.kodicmd.Options;
+import de.imichelb.kodicmd.model.Album;
 import de.imichelb.kodicmd.utils.HttpUtil;
 
 public class Kodi {
@@ -305,7 +307,7 @@ public class Kodi {
 		execute(req);
 	}
 	
-	public void getMusicAlbums() throws MalformedURLException, IOException {
+	public ArrayList<Album> getMusicAlbums() throws MalformedURLException, IOException {
 		
 		String method = "AudioLibrary.GetAlbums";
 		String[] props = {"artist", "title", "thumbnail"};
@@ -315,7 +317,11 @@ public class Kodi {
 		
 		KodiRequest req = new KodiRequest(method,params);
 			
-		execute(req);
+		String response = execute(req);
+		
+		KodiResponseAlbumList albumList = json.fromJson(response, KodiResponseAlbumList.class);
+		
+		return albumList.getAlbumList();
 	}
 	
 	public void getAlbumSongs(int albumId) throws MalformedURLException, IOException {

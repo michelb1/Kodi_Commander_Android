@@ -18,9 +18,9 @@ import de.imichelb.kodicmd.kodi.Command;
 import de.imichelb.kodicmd.model.TwitchItem;
 import de.imichelb.kodicmd.tasks.KodiCommandTask;
 import de.imichelb.kodicmd.tasks.TwitchDataTask;
-import de.imichelb.kodicmd.twitch.TwitchItemObserver;
+import de.imichelb.kodicmd.twitch.TwitchInterface;
 
-public class TwitchFragment extends Fragment implements OnItemClickListener, TwitchItemObserver{
+public class TwitchFragment extends Fragment implements OnItemClickListener, TwitchInterface{
 	
 	private View twitchView;
 	private ProgressBar progress;
