@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 import android.graphics.Bitmap;
 import de.imichelb.kodicmd.model.Album;
+import de.imichelb.kodicmd.model.Track;
 
 /*
  * KODI API AlbumList Response
  */
 @SuppressWarnings("unused")
-public class KodiResponseAlbumList {
+public class KodiResponseTrackList {
 
 	private String jsonrpc;
 	private int id;
-	private Result result;
+	private Result result;	
 	private Error error;
 	
 	private class Error{
@@ -25,7 +26,7 @@ public class KodiResponseAlbumList {
 	private class Result {
 		
 		private Limits limits;
-		private ArrayList<Album> albums;
+		private ArrayList<Track> songs;
 	}
 	
 	private class Limits {
@@ -35,9 +36,9 @@ public class KodiResponseAlbumList {
 		private Integer total;
 	}
 	
-	public ArrayList<Album> getAlbumList() {
+	public ArrayList<Track> getTrackList() {
 		
-		return this.result.albums;
+		return this.result.songs;
 	}
 
 }

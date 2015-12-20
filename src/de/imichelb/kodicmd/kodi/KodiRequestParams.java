@@ -42,20 +42,28 @@ public class KodiRequestParams {
 	
 	private class Item{
 		
-		public String file;
-		public Integer playlistid;
-		public Integer position;
+		private String file;
+		private Integer playlistid;
+		private Integer albumid;
+		private Integer position;
 		
-		public Item(int playListId){
+		public Item(){}
+		
+		public Item(int playListId, int position){
 			
 			playlistid = playListId;
-			position = 0; //TODO: position should be a parameter
+			this.position = position;
 		}
 		
 		public Item(String file){
 			
 			this.file = file;
-		}					
+		}
+		
+		public void setAlbum(int id){
+			
+			this.albumid = id;
+		}
 	}
 	
 	private class Limits {
@@ -95,16 +103,23 @@ public class KodiRequestParams {
 		
 		this.playlistid = playlistId;
 	}
-	
-	public void setOpenPlayListParams(int playlistId) {
 		
-		this.item = new Item(playlistId);
+	public void setOpenPlayListParams(int playlistId, int position) {
+		
+		this.item = new Item(playlistId, position);
 	}
 	
 	public void setAddToPlayListParams(int playListId, String uri) {
 		
 		this.playlistid = playListId;
 		this.item = new Item(uri);
+	}
+	
+	public void setAddToPlayListParams(int playlistId, int albumId) {
+		
+		this.playlistid = playlistId;
+		this.item = new Item();
+		item.setAlbum(albumId);
 	}
 	
 	public void setSendTextParams(String text) {

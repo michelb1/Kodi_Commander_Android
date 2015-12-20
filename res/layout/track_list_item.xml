@@ -12,9 +12,9 @@
             android:maxHeight="60dp"
             android:maxWidth="60dp" 
             android:scaleType="centerCrop"
-            android:contentDescription="@string/album_cover"
    			android:adjustViewBounds ="true"
-   			android:src="@drawable/cover_ph"/>
+   			android:contentDescription="@string/album_cover"
+   			android:src="@drawable/twitch_bg_ph"/>
         
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/list_item_title" />
 
@@ -35,9 +36,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:gravity="bottom"
+                android:layout_gravity="right"
                 android:textColor="@color/list_item_title" />
 			
     	</LinearLayout>

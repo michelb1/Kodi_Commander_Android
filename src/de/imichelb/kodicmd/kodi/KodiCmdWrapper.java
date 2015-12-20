@@ -7,10 +7,15 @@ public class KodiCmdWrapper {
 	
 	public KodiCmdWrapper(Command cmd, String str) throws MalformedURLException, IOException{
 		
-		executeCmd(cmd,str);	
+		executeCmd(cmd,str,null, null);	
 	}
 	
-	private void executeCmd(Command cmd, String str) throws MalformedURLException, IOException{
+	public KodiCmdWrapper(Command cmd, int position, int id) throws MalformedURLException, IOException{
+		
+		executeCmd(cmd,null,position,id);	
+	}
+	
+	private void executeCmd(Command cmd, String str, Integer position, Integer id) throws MalformedURLException, IOException{
 		
 		Kodi kodi = new Kodi();
 		
@@ -49,7 +54,8 @@ public class KodiCmdWrapper {
 			case UP: kodi.keyUp();
 				break;
 			case SEND_TEXT: kodi.sendText(str);
-			break;
+				break;
+			case PLAY_ALBUM: kodi.playAlbum(position, id);
 			default:
 				break;
 	

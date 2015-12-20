@@ -18,5 +18,6 @@ public enum Command {
 	MENU,
 	INFO,
 	OPEN_STREAM,
-	SEND_TEXT;
+	SEND_TEXT,
+	PLAY_ALBUM;
 }

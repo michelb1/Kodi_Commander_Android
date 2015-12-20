@@ -16,6 +16,8 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 	private Command cmd;
 	private String uri;
 	private Context context;
+	private Integer id;
+	private Integer position;
 	
 	public KodiCommandTask(Context context){
 		
@@ -33,6 +35,14 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 		
 		this.cmd = cmd;
 		this.uri = uri;
+		this.context = context;
+	}
+	
+	public KodiCommandTask(Context context, Command cmd, int position, int id){
+		
+		this.cmd = cmd;
+		this.id = id;
+		this.position = position;
 		this.context = context;
 	}
 	
@@ -64,7 +74,14 @@ public class KodiCommandTask extends AsyncTask<Object, Object, Object>{
 					
 		try {
 			//execute the Kodi Command
-			new KodiCmdWrapper(cmd, uri);
+			if(uri != null) {
+				
+				new KodiCmdWrapper(cmd, uri);
+				
+			} else if(id != null && position != null) {
+				
+				new KodiCmdWrapper(cmd, position, id);
+			}
 			
 		} catch (MalformedURLException e) {
 			

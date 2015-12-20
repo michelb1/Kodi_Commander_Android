@@ -68,10 +68,13 @@ public class AlbumViewListAdapter extends BaseAdapter{
 		
 		Bitmap img = albumList.get(position).getPreviewImg();
 		
-		if(img == null)
+		if(img == null) {
+			cover.setImageResource(R.drawable.cover_ph);
 			new DownloadImageTask(cover, albumList.get(position)).execute(imgUrl);
-		else
+			
+		} else {
 			cover.setImageBitmap(img);
+		}
 		
 		return convertView;
 	}

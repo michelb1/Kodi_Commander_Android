@@ -8,7 +8,8 @@
     <string name="emptyList">No Items found in the Library!</string>
     
     <!-- Toast Messages -->
-    <string name="play_stream">Send Stream to Kodi</string>  
+    <string name="play_stream">Send Stream to Kodi</string>
+    <string name="play_album">Open Album Playlist</string>  
     <string name="kodi_error">Error communicating with Kodi</string>
     <string name="kodi_timeout">KodiTask Timeout</string>
     <string name="twitch_error">Error fetching Twitch Data</string>
@@ -36,5 +37,6 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="twitch_preview">Twitch Preview Image</string>
+    <string name="album_cover">Music Album Cover</string>
 
 </resources>

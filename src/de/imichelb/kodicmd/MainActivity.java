@@ -182,7 +182,7 @@ public class MainActivity extends FragmentActivity {
 		if (fragment != null) {
 		
 			FragmentManager fragmentManager = getFragmentManager();
-
+			
 			fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, fragment).commit();
 
@@ -253,4 +253,10 @@ public class MainActivity extends FragmentActivity {
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 
+	@Override
+	public void onBackPressed() {
+		
+		super.onBackPressed();
+	}
+	
 }

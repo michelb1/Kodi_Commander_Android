@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 
 public class Album implements ImageCache{
 
-	private int albumId;
+	private int albumid;
 	private String[] artist;
 	private String title;
 	private String label;
@@ -14,7 +14,7 @@ public class Album implements ImageCache{
 	
 	public int getAlbumId() {
 		
-		return albumId;
+		return albumid;
 	}
 	
 	public String getArtist() {

@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import android.util.Log;
 import de.imichelb.kodicmd.Options;
 import de.imichelb.kodicmd.model.Album;
+import de.imichelb.kodicmd.model.Track;
 import de.imichelb.kodicmd.utils.HttpUtil;
 
 public class Kodi {
@@ -62,13 +63,26 @@ public class Kodi {
 	}
 	
 	/*
+	 * add album to playlist
+	 */
+	private void addToPlaylist(int playlistId, int albumId) throws MalformedURLException, IOException {
+		
+		String method = "Playlist.Add";
+		KodiRequestParams params = new KodiRequestParams();
+		params.setAddToPlayListParams(playlistId, albumId);
+		KodiRequest req = new KodiRequest(method,params);
+		
+		execute(req);
+	}
+	
+	/*
 	 * Start the playlist
 	 */
-	private void openPlaylist(int id) throws MalformedURLException, IOException {
+	private void openPlaylist(int id, int position) throws MalformedURLException, IOException {
 		
 		String method = "Player.Open";
 		KodiRequestParams params = new KodiRequestParams();
-		params.setOpenPlayListParams(id);
+		params.setOpenPlayListParams(id, position);
 		KodiRequest req = new KodiRequest(method,params);
 		
 		execute(req);
@@ -281,7 +295,7 @@ public class Kodi {
 		stop();
 		clearPlayList(id);
 		addToPlaylist(uri,id);
-		openPlaylist(id);
+		openPlaylist(id, 0);
 	}
 
 	public void sendText(String text) throws MalformedURLException, IOException {
@@ -324,7 +338,7 @@ public class Kodi {
 		return albumList.getAlbumList();
 	}
 	
-	public void getAlbumSongs(int albumId) throws MalformedURLException, IOException {
+	public ArrayList<Track> getAlbumSongs(int albumId) throws MalformedURLException, IOException {
 		
 		String method = "AudioLibrary.GetSongs";
 		String[] props = {"artist", "title", "track", "duration"};
@@ -334,6 +348,20 @@ public class Kodi {
 		
 		KodiRequest req = new KodiRequest(method,params);
 			
-		execute(req);
+		String response = execute(req);
+		
+		KodiResponseTrackList trackList = json.fromJson(response, KodiResponseTrackList.class);
+		
+		return trackList.getTrackList();
+	}
+	
+	public void playAlbum(int position, int albumId) throws MalformedURLException, IOException {
+		
+		int playlistId = 0;
+		
+		stop();
+		clearPlayList(playlistId);
+		addToPlaylist(playlistId, albumId);
+		openPlaylist(playlistId, position);
 	}
 }
