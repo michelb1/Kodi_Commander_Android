@@ -40,6 +40,8 @@ public class MainActivity extends FragmentActivity {
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
+	
+	private int currentFragId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -160,23 +162,24 @@ public class MainActivity extends FragmentActivity {
 		Fragment fragment = null;
 		
 		switch (position) {
-		case 0:
-			fragment = new RemoteFragment(this);
-			break;
-		case 1:
-			fragment = new MusicLibFragment(this);
-			break;
-		case 2:
-			fragment = new TwitchFragment(this);
-			break;
-		case 3:
-			fragment = new YoutubeFragment();
-			break;
-		case 4:
-			fragment = new OptionsFragment(this);
-			break;
-		default:
-			break;
+		
+			case 0:
+				fragment = new RemoteFragment(this);
+				break;
+			case 1:
+				fragment = new MusicLibFragment(this);
+				break;
+			case 2:
+				fragment = new TwitchFragment(this);
+				break;
+			case 3:
+				fragment = new YoutubeFragment();
+				break;
+			case 4:
+				fragment = new OptionsFragment(this);
+				break;
+			default:
+				break;
 		}
 
 		if (fragment != null) {
@@ -190,6 +193,8 @@ public class MainActivity extends FragmentActivity {
 			mDrawerList.setSelection(position);
 			setTitle(navMenuTitles[position]);
 			mDrawerLayout.closeDrawer(mDrawerList);
+			
+			currentFragId = position;
 
 		} else {
 			
@@ -213,12 +218,24 @@ public class MainActivity extends FragmentActivity {
 		}
 
 		switch (item.getItemId()) {
-		
-		case R.id.action_settings:
-			displayView(3);
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
+			
+			//Display Options Fragment
+			case R.id.action_settings:
+				displayView(4);
+				return true;
+				
+			//Close the App
+			case R.id.action_close:
+				finish();
+				return true;
+				
+			//Refresh current active fragment
+			case R.id.action_refresh:
+				displayView(currentFragId);
+				return true;
+				
+			default:
+				return super.onOptionsItemSelected(item);
 		}
 	}
 
@@ -226,7 +243,12 @@ public class MainActivity extends FragmentActivity {
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+		
+		//hide optionmenu items if the drawer menu is open
 		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+		menu.findItem(R.id.action_close).setVisible(!drawerOpen);
+		menu.findItem(R.id.action_refresh).setVisible(!drawerOpen);
+		
 		return super.onPrepareOptionsMenu(menu);
 	}
 	
@@ -256,7 +278,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public void onBackPressed() {
 		
-		super.onBackPressed();
+		//Do nothing
 	}
 	
 }

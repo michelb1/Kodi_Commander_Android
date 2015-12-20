@@ -36,8 +36,8 @@ public class Options {
 	 */
 	public void init() {
 		
-		setTwitchName(persistance.load(twitchNameKey));
-		setKodiIp(persistance.load(kodiIpKey));
+		this.twitchName = persistance.load(twitchNameKey);
+		this.kodiIp = persistance.load(kodiIpKey);
 	}
 	
 	public void setKodiIp(String ip){
