@@ -1,4 +1,4 @@
 # Kodi_Commander_Android
 Kodi Commander for Android
 
-![screenshots](https://cloud.githubusercontent.com/assets/14015916/11069145/ec682790-87d4-11e5-9dd9-21293b28fb85.png)
+![githubimage](https://cloud.githubusercontent.com/assets/14015916/11918415/82377a94-a730-11e5-9e27-372b926415ee.png)
