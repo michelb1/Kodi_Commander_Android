@@ -26,4 +26,9 @@
     <color name="twitch_div3">#00000000</color>
     <color name="twitch_div4">#FF000000</color>
     
+    <!-- v21 colors -->
+    <color name="color_primary">#424242</color>
+    <color name="color_secondary">#424242</color>
+    <color name="color_accent">#303030</color>
+    
 </resources>
