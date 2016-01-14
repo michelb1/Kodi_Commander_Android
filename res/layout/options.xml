@@ -11,19 +11,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="@dimen/activity_horizontal_margin"
-        android:text="Twitch Name:"
+        android:text="@string/opt_twitch_name"
         android:textColor="@color/list_item_title" />
 
     <EditText
         android:id="@+id/twitchname"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:background="@drawable/edit_text_rounded"
-		android:layout_gravity="center_horizontal"
-        android:padding="10dp"
         android:ems="1"
+        android:inputType="text"
         android:minHeight="30dp"
-        android:singleLine="true"/>
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/title2"
@@ -31,7 +33,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_horizontal_margin"
         android:layout_gravity="center_horizontal"
-        android:text="Kodi IP:" 
+        android:text="@string/opt_kodi_ip" 
         android:textColor="@color/list_item_title" />
 
     <EditText
@@ -40,10 +42,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/edit_text_rounded"
-        android:padding="10dp"
         android:ems="1"
+        android:inputType="textUri"
         android:minHeight="30dp"
-        android:singleLine="true" />
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/save_button"
@@ -53,7 +57,7 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/button_rounded"
         android:padding="@dimen/activity_horizontal_margin"
-        android:text="Save Options"
+        android:text="@string/opt_save"
         android:textColor="@color/list_item_title" />
 
 </LinearLayout>

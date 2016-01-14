@@ -8,6 +8,11 @@
     <string name="action_refresh">Refresh Page</string>
     <string name="action_close">Close App</string>
     
+    <!-- Options View -->
+    <string name="opt_kodi_ip">Kodi-IP:</string>
+    <string name="opt_twitch_name">Twitch Name:</string>
+    <string name="opt_save">Save Options</string>
+    
     <!-- Audio Lib -->
     <string name="emptyList">No Items found in the Library!</string>
     
